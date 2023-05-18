@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import Footer from "../../shared/Footer";
 
-
-
 const AllToy = () => {
   const [allToy, setAllToy] = useState([]);
 
@@ -137,46 +135,10 @@ const AllToy = () => {
     <>
       <Navigation></Navigation>
       {/* code for modal */}
-      <>
-        <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-        <div className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box card bg-base-100 shadow-xl w-full">
-            <div className="card-body">
-              <figure>
-                <img
-                  src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="my-4">
-                <h2 className="text-2xl font-bold">Toy Name</h2>
-                <p className="text-lg">Seller: Seller Name</p>
-                <p className="text-lg">Email: seller@example.com</p>
-                <p className="text-lg">Price: $99.99</p>
-                <p className="text-lg">Rating: 4.5</p>
-                <p className="text-lg">Available Quantity: 10</p>
-                <p className="text-lg">Detail Description:</p>
-                <p className="text-base">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris vel sem a arcu placerat aliquet. Aenean sagittis
-                  malesuada mauris, in sagittis orci semper nec. Nulla aliquam
-                  velit nec purus malesuada tempus.
-                </p>
-              </div>
-            </div>
 
-            <div className="modal-action flex justify-center items-center">
-              <label htmlFor="my-modal-6" className="btn">
-                OK
-              </label>
-            </div>
-          </div>
-        </div>
-      </>
       {/* data table */}
       <div className="overflow-x-auto w-full">
         <table className="table w-full text-center">
-          {/* head */}
           <thead>
             <tr>
               <th>Thumbnail</th>
@@ -189,29 +151,66 @@ const AllToy = () => {
             </tr>
           </thead>
           <tbody>
-            {Toys.map((toy) => (
-              <tr>
-                <td>
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src={toy?.pictureUrl}
-                        alt="Avatar Tailwind CSS Component"
-                      />
+            {allToy.map((toy) => (
+              <>
+                <>
+                  <input
+                    type="checkbox"
+                    id="my-modal-6"
+                    className="modal-toggle"
+                  />
+                  <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box card bg-base-100 shadow-xl w-full">
+                      <div className="card-body">
+                        <figure>
+                          <img src={toy?.pictureUrl} alt="Shoes" />
+                        </figure>
+                        <div className="my-4">
+                          <h2 className="text-2xl font-bold">{toy?.name}</h2>
+                          <p className="text-lg">Seller:{toy?.sellerName}</p>
+                          <p className="text-lg">Email: {toy?.sellerMail}</p>
+                          <p className="text-lg">Sub Category: {toy?.subCategory}</p>
+                          <p className="text-lg">Price: ${toy?.price}</p>
+                          <p className="text-lg">Rating: {toy?.rating}</p>
+                          <p className="text-lg">
+                            Available Quantity: {toy?.quantity}
+                          </p>
+                          <p className="text-lg">Detail Description:</p>
+                          <p className="text-base">{toy?.description}</p>
+                        </div>
+                      </div>
+
+                      <div className="modal-action flex justify-center items-center">
+                        <label htmlFor="my-modal-6" className="btn">
+                          OK
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </td>
-                <td>{toy?.name}</td>
-                <td>{toy?.sellerName}</td>
-                <td>{toy?.subCategory}</td>
-                <td>${toy?.price}</td>
-                <td>{toy?.quantity}</td>
-                <td>
-                  <label htmlFor="my-modal-6" className="btn btn-sm">
-                    View Details
-                  </label>
-                </td>
-              </tr>
+                </>
+                <tr>
+                  <td>
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img
+                          src={toy?.pictureUrl}
+                          alt="Avatar Tailwind CSS Component"
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td>{toy?.name}</td>
+                  <td>{toy?.sellerName}</td>
+                  <td>{toy?.subCategory}</td>
+                  <td>${toy?.price}</td>
+                  <td>{toy?.quantity}</td>
+                  <td>
+                    <label htmlFor="my-modal-6" className="btn btn-sm">
+                      View Details
+                    </label>
+                  </td>
+                </tr>
+              </>
             ))}
             {/* row 1 */}
           </tbody>
