@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import Footer from "../../shared/Footer";
+import { Link } from "react-router-dom";
 
 const AllToy = () => {
   const [allToy, setAllToy] = useState([]);
@@ -205,9 +206,9 @@ const AllToy = () => {
                   <td>${toy?.price}</td>
                   <td>{toy?.quantity}</td>
                   <td>
-                    <label htmlFor="my-modal-6" className="btn btn-sm">
+                    <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm">
                       View Details
-                    </label>
+                    </Link>
                   </td>
                 </tr>
               </>

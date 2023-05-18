@@ -2,8 +2,22 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Navigation from "../../shared/Navigation";
 import Footer from "../../shared/Footer";
+import { useLoaderData } from "react-router-dom";
 
 const EditToy = () => {
+  const toy = useLoaderData();
+  const {
+    _id,
+    name,
+    pictureUrl,
+    sellerMail,
+    sellerName,
+    subCategory,
+    price,
+    quantity,
+    rating,
+    description,
+  } = toy;
   const {
     register,
     handleSubmit,
@@ -12,6 +26,22 @@ const EditToy = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    const confirmPopUp = confirm("Your Toy Details wil update");
+    if (confirmPopUp) {
+      fetch(`http://localhost:5000/toyDetails/${_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data?.acknowledged == true) {
+            alert("Updated Successful.");
+          }
+        });
+    }
+
     // Perform form submission logic here
   };
   return (
@@ -30,7 +60,7 @@ const EditToy = () => {
               type="text"
               id="name"
               {...register("name", { required: true })}
-              defaultValue="Toy Name"
+              defaultValue={name}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.name && (
@@ -45,7 +75,7 @@ const EditToy = () => {
               type="text"
               id="pictureUrl"
               {...register("pictureUrl", { required: true })}
-              defaultValue={'https://dynamic-cdn.catchme.lk/products/12575/13-inch-spider-man-action-figure-16027553554909.jpg'}
+              defaultValue={pictureUrl}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.pictureUrl && (
@@ -60,6 +90,7 @@ const EditToy = () => {
               type="text"
               id="sellerName"
               {...register("sellerName", { required: true })}
+              defaultValue={sellerName}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.sellerName && (
@@ -74,6 +105,7 @@ const EditToy = () => {
               type="email"
               id="sellerMail"
               {...register("sellerMail", { required: true })}
+              defaultValue={sellerMail}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.sellerMail && (
@@ -88,6 +120,7 @@ const EditToy = () => {
             <select
               id="subCategory"
               {...register("subCategory", { required: true })}
+              defaultValue={subCategory}
               className="w-full p-2 border border-gray-300 rounded"
             >
               <option value="subCat1">Add-Sub-category</option>
@@ -108,6 +141,7 @@ const EditToy = () => {
               type="number"
               id="price"
               {...register("price", { required: true })}
+              defaultValue={price}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.price && (
@@ -123,6 +157,7 @@ const EditToy = () => {
               type="number"
               id="rating"
               {...register("rating", { required: true })}
+              defaultValue={rating}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.rating && (
@@ -138,6 +173,7 @@ const EditToy = () => {
               type="number"
               id="quantity"
               {...register("quantity", { required: true })}
+              defaultValue={quantity}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.quantity && (
@@ -152,6 +188,7 @@ const EditToy = () => {
             <textarea
               id="description"
               {...register("description", { required: true })}
+              defaultValue={description}
               className="w-full p-2 border border-gray-300 rounded"
             ></textarea>
             {errors.description && (
@@ -163,7 +200,7 @@ const EditToy = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded lg:col-span-4"
           >
-            Add The Toy
+            Edit Toy Details
           </button>
         </form>
       </div>

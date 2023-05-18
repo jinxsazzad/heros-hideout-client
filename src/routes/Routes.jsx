@@ -7,41 +7,59 @@ import AddAToy from "../component/pages/addAToy/AddAToy";
 import AllToy from "../component/pages/allToy/AllToy";
 import MyToys from "../component/pages/myToys/MyToys";
 import EditToy from "../component/pages/myToys/EditToy";
+import ToyDetails from "../component/pages/toyDetails/ToyDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = createBrowserRouter([
-    {
-        path:'/',
-        element:<MainLayout></MainLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-    },
-    {
-        path:'/signUp',
-        element:<RegForm></RegForm>
-    },
-    {
-        path:'/signIn',
-        element:<LoginForm></LoginForm>,
-    },
-    {
-        path:'/allToy',
-        element:<AllToy></AllToy>,
-    },
-    {
-        path:'/myToys',
-        element:<MyToys></MyToys>,
-    },
-    {
-        path:'/editToy',
-        element:<EditToy></EditToy>,
-    },
-    {
-        path:'/addAToy',
-        element:<AddAToy></AddAToy>,
-    },
-    {
-        path:'/blog',
-        element:<div>blog page</div>,
-    },
-])
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/signUp",
+    element: <RegForm></RegForm>,
+  },
+  {
+    path: "/signIn",
+    element: <LoginForm></LoginForm>,
+  },
+  {
+    path: "/allToy",
+    element: <AllToy></AllToy>,
+  },
+  {
+    path: "/myToys",
+    element: (
+      <PrivateRoute>
+        <MyToys></MyToys>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/editToy/:id",
+    element: <EditToy></EditToy>,
+    loader: ({ params }) =>
+      fetch(`http://localhost:5000/toyDetails/${params.id}`),
+  },
+  {
+    path: "/addAToy",
+    element: <AddAToy></AddAToy>,
+  },
+  {
+    path: "/viewDetails/:id",
+    element: (
+      <PrivateRoute>
+        <ToyDetails></ToyDetails>
+      </PrivateRoute>
+    ),
+    loader: ({ params }) =>
+      fetch(`http://localhost:5000/toyDetails/${params.id}`),
+  },
+  {
+    path: "/blog",
+    element: <div>blog page</div>,
+  },
+]);
 
 export default Routes;

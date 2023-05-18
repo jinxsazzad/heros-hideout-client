@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 const ShopByCategory = () => {
+  const subCat = {
+    subCat1: "subCat1",
+    subCat2: "subCat2",
+    subCat3: "subCat3",
+  };
+  const [subCatToys, setSubCatToys] = useState([]);
+  console.log(subCatToys);
+  const [subCategory, setSubCategory] = useState(subCat.subCat1);
+  console.log(subCategory);
+  useEffect(() => {
+    fetch(`http://localhost:5000/toysBySubCategory/${subCategory}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSubCatToys(data);
+      });
+  }, [subCategory]);
+  const handelLoadData = (subCat) => {
+    setSubCategory(subCat);
+  };
   const cards = [
     {
       picture: "image1.jpg",
@@ -33,29 +52,44 @@ const ShopByCategory = () => {
       </h1>
       <Tabs>
         <TabList className="flex justify-center items-center mb-4">
-          <Tab className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer">
+          <Tab
+            onClick={() => {
+              handelLoadData(subCat.subCat1);
+            }}
+            className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+          >
             Category 1
           </Tab>
-          <Tab className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer">
+          <Tab
+            onClick={() => {
+              handelLoadData(subCat.subCat2);
+            }}
+            className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+          >
             Category 2
           </Tab>
-          <Tab className="px-4 py-2 bg-gray-200 rounded-md cursor-pointer">
+          <Tab
+            onClick={() => {
+              handelLoadData(subCat.subCat3);
+            }}
+            className="px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+          >
             Category 3
           </Tab>
         </TabList>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cards.map((card) => (
+            {subCatToys.map((toy) => (
               <div className="bg-white rounded-lg shadow-lg p-4">
                 <img
-                  src={""}
-                  alt={""}
+                  src={toy.pictureUrl}
+                  alt={toy.name}
                   className="w-full h-auto rounded-md mb-4"
                 />
-                <h3 className="text-lg font-bold mb-2">{card.name}</h3>
-                <p className="text-gray-700 mb-2">Price: {card.price}</p>
+                <h3 className="text-lg font-bold mb-2">{toy.name}</h3>
+                <p className="text-gray-700 mb-2">Price: {toy.price}</p>
                 <div className="flex items-center mb-2">
-                  <span className="text-yellow-500 mr-1">{card.rating}</span>
+                  <span className="text-yellow-500 mr-1">{toy.rating}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-yellow-500"
@@ -78,17 +112,17 @@ const ShopByCategory = () => {
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cards.map((card) => (
+            {subCatToys.map((toy) => (
               <div className="bg-white rounded-lg shadow-lg p-4">
                 <img
-                  src={""}
-                  alt={""}
+                  src={toy.pictureUrl}
+                  alt={toy.name}
                   className="w-full h-auto rounded-md mb-4"
                 />
-                <h3 className="text-lg font-bold mb-2">{card.name}</h3>
-                <p className="text-gray-700 mb-2">Price: {card.price}</p>
+                <h3 className="text-lg font-bold mb-2">{toy.name}</h3>
+                <p className="text-gray-700 mb-2">Price: {toy.price}</p>
                 <div className="flex items-center mb-2">
-                  <span className="text-yellow-500 mr-1">{card.rating}</span>
+                  <span className="text-yellow-500 mr-1">{toy.rating}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-yellow-500"
@@ -111,17 +145,17 @@ const ShopByCategory = () => {
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cards.map((card) => (
+            {subCatToys.map((toy) => (
               <div className="bg-white rounded-lg shadow-lg p-4">
                 <img
-                  src={""}
-                  alt={""}
+                  src={toy.pictureUrl}
+                  alt={toy.name}
                   className="w-full h-auto rounded-md mb-4"
                 />
-                <h3 className="text-lg font-bold mb-2">{card.name}</h3>
-                <p className="text-gray-700 mb-2">Price: {card.price}</p>
+                <h3 className="text-lg font-bold mb-2">{toy.name}</h3>
+                <p className="text-gray-700 mb-2">Price: {toy.price}</p>
                 <div className="flex items-center mb-2">
-                  <span className="text-yellow-500 mr-1">{card.rating}</span>
+                  <span className="text-yellow-500 mr-1">{toy.rating}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-yellow-500"

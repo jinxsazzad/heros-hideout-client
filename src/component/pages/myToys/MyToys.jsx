@@ -7,9 +7,24 @@ import { AuthContext } from "../../../context/AuthProvider";
 const myToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  const handelDelete = id =>{
-    fetch(`http://localhost:5000/mytoys/${id}`,{method:"DELETE"}).then((res)=>res.json()).then((data)=>console.log(data)).catch((error)=>console.log(error));
-  }
+  const handelDelete = (id) => {
+    const confirmPopUp = confirm("You are deleting a product");
+
+    if (confirmPopUp) {
+      fetch(`http://localhost:5000/toyDetails/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Successfully DELETE");
+            const currentMyToys = myToys.filter((toys) => toys._id !== id);
+            setMyToys(currentMyToys);
+          }
+        });
+    }
+  };
 
   const Toys = [
     {
@@ -175,7 +190,7 @@ const myToys = () => {
                   <td>{toy?.quantity}</td>
                   <td>
                     <Link
-                      to={"/editToy"}
+                      to={`/editToy/${toy?._id}`}
                       htmlFor="my-modal-6"
                       className="btn btn-sm"
                     >
