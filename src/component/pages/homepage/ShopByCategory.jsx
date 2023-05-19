@@ -23,26 +23,7 @@ const ShopByCategory = () => {
   const handelLoadData = (subCat) => {
     setSubCategory(subCat);
   };
-  const cards = [
-    {
-      picture: "image1.jpg",
-      name: "Product 1",
-      price: "$19.99",
-      rating: 4.5,
-    },
-    {
-      picture: "image2.jpg",
-      name: "Product 2",
-      price: "$24.99",
-      rating: 3.8,
-    },
-    {
-      picture: "image3.jpg",
-      name: "Product 3",
-      price: "$14.99",
-      rating: 4.2,
-    },
-  ];
+  
   return (
     <>
       <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">

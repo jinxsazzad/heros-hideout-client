@@ -158,7 +158,7 @@ const GalllerySec = () => {
         gradientColor={[255, 181, 216]}
         className="py-8 bg-slate-200"
       >
-        <div className="flex gap-4">
+        <div className="flex gap-4 ml-4">
           {subCatToys.map((toy) => (
             <div className="card bg-base-100 shadow-xl ">
               <figure className="px-2 pt-2">

@@ -97,7 +97,7 @@ const Navigation = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <button>
+              <button className="tooltip" data-tip="hello">
                 {(
                   <img
                     className="h-10 w-10 rounded-full"
