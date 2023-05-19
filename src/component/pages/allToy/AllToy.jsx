@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import Footer from "../../shared/Footer";
 import { Link } from "react-router-dom";
+import { FaRegEye } from "react-icons/fa";
 
 const AllToy = () => {
   const [allToy, setAllToy] = useState([]);
@@ -135,16 +136,21 @@ const AllToy = () => {
   return (
     <>
       <Navigation></Navigation>
-      {/* code for modal */}
-
-      {/* data table */}
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full text-center">
+      <div className="bg-base-100 my-2">
+        <h1 className="text-3xl font-bold text-primary text-center ">
+          All Toy
+        </h1>
+        <p className=" text-center p-2 font-medium">
+          Here you can see all toy with details!
+        </p>
+      </div>
+      <div className="overflow-x-auto w-full my-4 border-2 border-pink-700 rounded-md">
+        <table className="table w-full table-zebra text-center">
           <thead>
             <tr>
               <th>Thumbnail</th>
+              <th>Toy Name </th>
               <th>Seller Name</th>
-              <th>Toy Name</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
@@ -154,49 +160,11 @@ const AllToy = () => {
           <tbody>
             {allToy.map((toy) => (
               <>
-                <>
-                  <input
-                    type="checkbox"
-                    id="my-modal-6"
-                    className="modal-toggle"
-                  />
-                  <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box card bg-base-100 shadow-xl w-full">
-                      <div className="card-body">
-                        <figure>
-                          <img src={toy?.pictureUrl} alt="Shoes" />
-                        </figure>
-                        <div className="my-4">
-                          <h2 className="text-2xl font-bold">{toy?.name}</h2>
-                          <p className="text-lg">Seller:{toy?.sellerName}</p>
-                          <p className="text-lg">Email: {toy?.sellerMail}</p>
-                          <p className="text-lg">Sub Category: {toy?.subCategory}</p>
-                          <p className="text-lg">Price: ${toy?.price}</p>
-                          <p className="text-lg">Rating: {toy?.rating}</p>
-                          <p className="text-lg">
-                            Available Quantity: {toy?.quantity}
-                          </p>
-                          <p className="text-lg">Detail Description:</p>
-                          <p className="text-base">{toy?.description}</p>
-                        </div>
-                      </div>
-
-                      <div className="modal-action flex justify-center items-center">
-                        <label htmlFor="my-modal-6" className="btn">
-                          OK
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </>
                 <tr>
                   <td>
-                    <div className="avatar">
+                    <div className="avatar border-2 border-black rounded-md">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src={toy?.pictureUrl}
-                          alt="Avatar Tailwind CSS Component"
-                        />
+                        <img src={toy?.pictureUrl} alt="" />
                       </div>
                     </div>
                   </td>
@@ -206,8 +174,11 @@ const AllToy = () => {
                   <td>${toy?.price}</td>
                   <td>{toy?.quantity}</td>
                   <td>
-                    <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm">
-                      View Details
+                    <Link
+                      to={`/viewDetails/${toy._id}`}
+                      className="btn btn-sm btn-primary"
+                    >
+                      View Details <FaRegEye className="ms-2"></FaRegEye>
                     </Link>
                   </td>
                 </tr>

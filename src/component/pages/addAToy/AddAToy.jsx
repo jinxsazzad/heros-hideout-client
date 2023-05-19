@@ -13,26 +13,28 @@ const AddAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addAToy",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-        },
-        body:JSON.stringify(data)
+    fetch("http://localhost:5000/addAToy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) =>{if (result?.acknowledged == true) {
-        alert(`Toy add successfully, id:${result?.insertedId}`)
-      }})
+      .then((result) => {
+        if (result?.acknowledged == true) {
+          alert(`Toy add successfully, id:${result?.insertedId}`);
+        }
+      })
       .catch((error) => console.log(error));
   };
   return (
     <>
       <Navigation></Navigation>
-      <div>
+      <div className=" bg-slate-200 p-1">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="max-w-md mx-auto grid grid-cols-1 gap-4 lg:grid-cols-4 border-4 border-blue-600 m-4 p-6"
+          className="max-w-md mx-auto grid grid-cols-1 gap-4 lg:grid-cols-4 border-2 border-pink-600 m-4 p-6 rounded-md bg-white"
         >
           <div className="mb-4 lg:col-span-2">
             <label htmlFor="name" className="block mb-1">
@@ -108,9 +110,9 @@ const AddAToy = () => {
               className="w-full p-2 border border-gray-300 rounded"
             >
               <option value="subCat1">Add-Sub-category</option>
-              <option value="subCat1">Sub-category 1</option>
-              <option value="subCat2">Sub-category 2</option>
-              <option value="subCat3">Sub-category 3</option>
+              <option value="avengers">avengers</option>
+              <option value="transformers">transformers</option>
+              <option value="toyStory">toyStory</option>
             </select>
             {errors.subCategory && (
               <span className="text-red-500">This field is required</span>
@@ -178,9 +180,9 @@ const AddAToy = () => {
 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded lg:col-span-4"
+            className="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded lg:col-span-4"
           >
-            Add The Toy
+            Add Toy
           </button>
         </form>
       </div>

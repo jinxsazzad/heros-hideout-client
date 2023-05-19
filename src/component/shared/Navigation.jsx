@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import '../../assets/styles/vanillaCustom.css'
+import "../../assets/styles/vanillaCustom.css";
 
 const Navigation = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Navigation = () => {
   };
   return (
     <div>
-      <nav className="navbar bg-[#35B1E5]">
+      <nav className=" my-2 border-y-[1px] border-stone-600 navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,7 +59,14 @@ const Navigation = () => {
               </li>
             </ul>
           </div>
-          <Link to={'/'} className="text-xl">Hero's Hideout
+          <Link
+            to={"/"}
+            className="text-2xl font-semibold text-center text-slate-900"
+          >
+            Hero's
+            <span class="ms-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+              <span class="relative text-white px-4">Hideout</span>
+            </span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

@@ -18,7 +18,7 @@ const Banner = () => {
             Here you can bur you favorites action heros toys!
           </p>
           <div className="card-actions justify-center mb-8">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-info">Buy Now</button>
           </div>
         </div>
       </div>
