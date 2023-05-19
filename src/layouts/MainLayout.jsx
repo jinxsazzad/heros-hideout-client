@@ -14,6 +14,7 @@ const MainLayout = () => {
         <GalllerySec></GalllerySec>
         <ShopByCategory></ShopByCategory>
         <NewArrivals></NewArrivals>
+        
         <App></App>
         <Footer></Footer>
         </>
