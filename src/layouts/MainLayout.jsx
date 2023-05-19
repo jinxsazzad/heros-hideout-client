@@ -9,19 +9,18 @@ import Outlet from "../component/pages/homepage/Outlet";
 import DealsDiscounts from "../component/pages/homepage/DealsDiscounts";
 
 const MainLayout = () => {
-    return (
-        <>
-        <Navigation></Navigation>
-        <Banner></Banner>
-        <NewArrivals></NewArrivals>
-        <GalllerySec></GalllerySec>
-        <DealsDiscounts></DealsDiscounts>
-        <ShopByCategory></ShopByCategory>
-        <Outlet></Outlet>
-        <App></App>
-        <Footer></Footer>
-        </>
-    );
+  return (
+    <>
+      <Navigation></Navigation>
+      <Banner></Banner>
+      <NewArrivals></NewArrivals>
+      <GalllerySec></GalllerySec>
+      <DealsDiscounts></DealsDiscounts>
+      <ShopByCategory></ShopByCategory>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </>
+  );
 };
 
 export default MainLayout;
