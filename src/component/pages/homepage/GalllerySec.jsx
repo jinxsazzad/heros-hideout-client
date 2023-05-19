@@ -143,62 +143,7 @@ const subCatToys = [
 
 const GalllerySec = () => {
   return (
-    <div>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
-        <h1 className="text-3xl font-bold text-primary text-center ">
-          New Arrivals
-        </h1>
-        <p className=" text-center p-2 font-medium">
-          Marketplace is updated ! Collect new Heros Now!
-        </p>
-      </div>
-      <Marquee
-        pauseOnHover={true}
-        gradient={true}
-        gradientColor={[255, 181, 216]}
-        className="py-8 bg-slate-200"
-      >
-        <div className="flex gap-4 ml-4">
-          {subCatToys.map((toy) => (
-            <div className="card bg-base-100 shadow-xl ">
-              <figure className="px-2 pt-2">
-                <img
-                  src={toy.pictureUrl}
-                  alt="Shoes"
-                  className="rounded-xl h-36    w-20 "
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">{toy.name}</h2>
-                <div className="flex gap-2">
-                  <p className="badge badge-outline">$ {toy.price}</p>
-                  <div className="flex items-center mb-2 badge badge-outline">
-                    <span className="text-yellow-500 mr-1 ml-2">
-                      {toy.rating}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-yellow-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 1.317l3.09 6.212 6.905 1.002-4.997 4.87L15.091 19 10 15.795 4.909 19l1.003-6.599L0 8.531l6.905-1.002L10 1.317z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <Link className="badge bg-primary hover:bg-pink-600 p-4">
-                  Buy Now
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Marquee>
-    </div>
+    
   );
 };
 
