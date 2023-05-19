@@ -3,7 +3,6 @@ import Footer from "../component/shared/Footer";
 import Banner from "../component/pages/homepage/Banner";
 import GalllerySec from "../component/pages/homepage/GalllerySec";
 import ShopByCategory from "../component/pages/homepage/ShopByCategory";
-import App from "../App";
 import NewArrivals from "../component/pages/homepage/NewArrivals";
 import Outlet from "../component/pages/homepage/Outlet";
 import DealsDiscounts from "../component/pages/homepage/DealsDiscounts";
@@ -14,7 +13,7 @@ const MainLayout = () => {
       <Navigation></Navigation>
       <Banner></Banner>
       <NewArrivals></NewArrivals>
-      <GalllerySec></GalllerySec>
+      <GalllerySec data-aos="flip-left" data-aos-delay="100"></GalllerySec>
       <DealsDiscounts></DealsDiscounts>
       <ShopByCategory></ShopByCategory>
       <Outlet></Outlet>

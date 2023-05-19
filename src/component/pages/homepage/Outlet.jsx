@@ -68,8 +68,6 @@ const Outlet = () => {
       <div>
         <Marquee
           pauseOnHover={true}
-          gradient={true}
-          gradientColor={[255, 181, 216]}
           className="py-8 bg-slate-200"
         >
           <div className="flex gap-4">

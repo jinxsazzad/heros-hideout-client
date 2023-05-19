@@ -1,11 +1,18 @@
 import React from "react";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
+
 const img1Url =
   "https://a-static.mlcdn.com.br/800x560/kit-festa-toy-story-com-displays-de-mesa-e-painel-poli-banner-companhia-do-m-d-f/companhiadomdf/109p/f3142d5bb0af4451733992a2521aaa66.jpg";
 const img2Url =
   "https://www.shutterstock.com/image-vector/red-robot-transformer-cartoon-vector-600w-1577018869.jpg";
 
 const DealsDiscounts = () => {
+    useEffect(() => {
+        AOS.init(); // Initialize AOS
+      }, []);
   return (
     <div>
       <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
@@ -13,13 +20,13 @@ const DealsDiscounts = () => {
           Deals and Discounts
         </h1>
         <p className=" text-center p-2 font-medium">
-          Mega Deals & Discounts!{" "}
+          Mega Deals & Discounts!
           <span className=" badge badge-info p-2 font-semibold">
             Grape Now!
           </span>
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4  m-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4  m-4"data-aos="zoom-in" data-aos-duration="2000">
         <div className="card bg-base-100 shadow-xl image-full">
           <figure>
             <img src="https://www.shutterstock.com/image-vector/red-robot-transformer-cartoon-vector-600w-1577018869.jpg" />
