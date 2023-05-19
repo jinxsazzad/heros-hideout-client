@@ -50,13 +50,13 @@ const ShopByCategory = () => {
       >
         Categories
       </h1>
-      <Tabs>
-        <TabList className="flex justify-center items-center mb-4">
+      <Tabs className="tabs tabs-boxed justify-center items-center bg-slate-300">
+        <TabList className="flex justify-center items-center m-4">
           <Tab
             onClick={() => {
               handelLoadData(subCat.subCat1);
             }}
-            className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+            className="mr-2 px-4 py-2 bg-pink-500 text-white font-semibold rounded-md cursor-pointer"
           >
             Category 1
           </Tab>
@@ -64,7 +64,7 @@ const ShopByCategory = () => {
             onClick={() => {
               handelLoadData(subCat.subCat2);
             }}
-            className="mr-2 px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+            className="mr-2 px-4 py-2 bg-pink-500 text-white font-semibold rounded-md cursor-pointer"
           >
             Category 2
           </Tab>
@@ -72,7 +72,7 @@ const ShopByCategory = () => {
             onClick={() => {
               handelLoadData(subCat.subCat3);
             }}
-            className="px-4 py-2 bg-gray-200 rounded-md cursor-pointer"
+            className="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md cursor-pointer"
           >
             Category 3
           </Tab>

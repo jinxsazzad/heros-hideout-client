@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import '../../assets/styles/vanillaCustom.css'
 
 const Navigation = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const Navigation = () => {
   };
   return (
     <div>
-      <div className="navbar bg-base-200">
+      <nav className="navbar bg-[#35B1E5]">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,12 +59,11 @@ const Navigation = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
-            <FaUser></FaUser> Hero's Hideout
-          </a>
+          <Link to={'/'} className="text-xl">Hero's Hideout
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal rounded-none px-1">
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
@@ -117,7 +117,7 @@ const Navigation = () => {
             </button>
           )}
         </div>
-      </div>
+      </nav>
     </div>
   );
 };

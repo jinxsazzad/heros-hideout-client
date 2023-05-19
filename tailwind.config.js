@@ -9,7 +9,14 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["cupcake",""]
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "rgb(53, 177, 229)",
+        },
+      },
+    ],
   },
 }
 
