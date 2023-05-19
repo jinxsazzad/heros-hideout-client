@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 const ShopByCategory = () => {
@@ -14,7 +14,7 @@ const ShopByCategory = () => {
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
   console.log(subCategory);
   useEffect(() => {
-    fetch(`http://localhost:5000/toysBySubCategory/${subCategory}`)
+    fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/toysBySubCategory/${subCategory}`)
       .then((res) => res.json())
       .then((data) => {
         setSubCatToys(data);

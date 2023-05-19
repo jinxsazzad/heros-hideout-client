@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navigation from "../../shared/Navigation";
-import Footer from "../../shared/Footer";
-import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Footer from "../../shared/Footer";
+import Navigation from "../../shared/Navigation";
 
 const AllToy = () => {
   const [allToy, setAllToy] = useState([]);
@@ -127,7 +127,7 @@ const AllToy = () => {
     },
   ];
   useEffect(() => {
-    fetch("http://localhost:5000/allToy")
+    fetch("https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/allToy")
       .then((res) => res.json())
       .then((data) => setAllToy(data))
       .catch((error) => console.log(error));

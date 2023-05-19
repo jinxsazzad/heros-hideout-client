@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Navigation from "../../shared/Navigation";
-import Footer from "../../shared/Footer";
 import { useLoaderData } from "react-router-dom";
+import Footer from "../../shared/Footer";
+import Navigation from "../../shared/Navigation";
 
 const EditToy = () => {
   const toy = useLoaderData();
@@ -28,7 +28,7 @@ const EditToy = () => {
     console.log(data);
     const confirmPopUp = confirm("Your Toy Details wil update");
     if (confirmPopUp) {
-      fetch(`http://localhost:5000/toyDetails/${_id}`, {
+      fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/toyDetails/${_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

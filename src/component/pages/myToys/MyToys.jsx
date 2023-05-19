@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import Navigation from "../../shared/Navigation";
-import Footer from "../../shared/Footer";
+import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
-import { FaRegEdit, FaTrash } from "react-icons/fa";
+import Footer from "../../shared/Footer";
+import Navigation from "../../shared/Navigation";
 
 const myToys = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +12,7 @@ const myToys = () => {
     const confirmPopUp = confirm("You are deleting a product");
 
     if (confirmPopUp) {
-      fetch(`http://localhost:5000/toyDetails/${id}`, {
+      fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/toyDetails/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -27,7 +27,7 @@ const myToys = () => {
     }
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${user?.email}`)
+    fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/mytoys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data))
       .catch((error) => console.log(error));

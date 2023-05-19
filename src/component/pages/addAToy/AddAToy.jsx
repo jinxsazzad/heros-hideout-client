@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import Navigation from "../../shared/Navigation";
-import Footer from "../../shared/Footer";
 import { AuthContext } from "../../../context/AuthProvider";
+import Footer from "../../shared/Footer";
+import Navigation from "../../shared/Navigation";
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const AddAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addAToy", {
+    fetch("https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/addAToy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
