@@ -5,16 +5,19 @@ import GalllerySec from "../component/pages/homepage/GalllerySec";
 import ShopByCategory from "../component/pages/homepage/ShopByCategory";
 import App from "../App";
 import NewArrivals from "../component/pages/homepage/NewArrivals";
+import Outlet from "../component/pages/homepage/Outlet";
+import DealsDiscounts from "../component/pages/homepage/DealsDiscounts";
 
 const MainLayout = () => {
     return (
         <>
         <Navigation></Navigation>
         <Banner></Banner>
-        <GalllerySec></GalllerySec>
-        <ShopByCategory></ShopByCategory>
         <NewArrivals></NewArrivals>
-        
+        <GalllerySec></GalllerySec>
+        <DealsDiscounts></DealsDiscounts>
+        <ShopByCategory></ShopByCategory>
+        <Outlet></Outlet>
         <App></App>
         <Footer></Footer>
         </>
