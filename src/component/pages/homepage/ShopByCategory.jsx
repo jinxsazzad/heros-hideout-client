@@ -14,7 +14,7 @@ const ShopByCategory = () => {
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
   console.log(subCategory);
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/toysBySubCategory/${subCategory}`)
+    fetch(`http://localhost:5000/toysBySubCategory/${subCategory}`)
       .then((res) => res.json())
       .then((data) => {
         setSubCatToys(data);

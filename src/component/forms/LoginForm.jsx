@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Navigation from "../shared/Navigation";
 
 const LoginForm = () => {
   const [error, setError] = useState(false);
@@ -30,6 +31,7 @@ const LoginForm = () => {
   };
   return (
     <>
+    <Navigation></Navigation>
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8 md:px-16">

@@ -127,7 +127,7 @@ const AllToy = () => {
     },
   ];
   useEffect(() => {
-    fetch("https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/allToy")
+    fetch("http://localhost:5000/allToy")
       .then((res) => res.json())
       .then((data) => setAllToy(data))
       .catch((error) => console.log(error));

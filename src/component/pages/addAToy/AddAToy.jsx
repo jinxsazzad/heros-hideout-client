@@ -13,7 +13,7 @@ const AddAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/addAToy", {
+    fetch("http://localhost:5000/addAToy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

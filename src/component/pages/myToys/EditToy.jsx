@@ -28,7 +28,7 @@ const EditToy = () => {
     console.log(data);
     const confirmPopUp = confirm("Your Toy Details wil update");
     if (confirmPopUp) {
-      fetch(`https://assignment-eleven-server-4h09kq527-jinxsazzad.vercel.app/toyDetails/${_id}`, {
+      fetch(`http://localhost:5000/toyDetails/${_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

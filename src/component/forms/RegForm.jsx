@@ -1,15 +1,17 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { Link } from "react-router-dom";
+import Navigation from "../shared/Navigation";
 
 const RegForm = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { user,createUser } = useContext(AuthContext);
 
   const handelRegistration = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
@@ -49,10 +51,18 @@ const RegForm = () => {
         setError(error.message);
       });
     console.log(error);
+    user?.updateProfile({
+      photoURL:{photoUrl}
+    }).then(function() {
+      // Photo URL updated successfully.
+    }).catch(function(error) {
+      // An error occurred.
+    });
   };
 
   return (
     <>
+    <Navigation></Navigation>
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8 md:px-16">
@@ -70,6 +80,12 @@ const RegForm = () => {
                 type="text"
                 name="name"
                 placeholder="Your Name"
+              />
+              <input
+                className="p-2 rounded-xl border"
+                type="text"
+                name="photoUrl"
+                placeholder="Photo URL"
               />
               <input
                 className="p-2 rounded-xl border"

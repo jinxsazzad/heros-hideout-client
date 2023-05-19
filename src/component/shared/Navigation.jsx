@@ -6,6 +6,7 @@ import "../../assets/styles/vanillaCustom.css";
 
 const Navigation = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const handelLogout = () => {
     logOut()
       .then(() => {})
@@ -97,14 +98,17 @@ const Navigation = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <button className="tooltip" data-tip="hello">
-                {(
+              <button
+                className="tooltip tooltip-left"
+                data-tip={user?.displayName || "User Name"}
+              >
+                {user.photoURL?(
                   <img
                     className="h-10 w-10 rounded-full"
-                    src={user.photoURL}
-                    alt=""
+                    src={user?.photoURL}
+                    alt=''
                   />
-                ) || <FaUser></FaUser>}
+                ): <FaUser></FaUser>}
               </button>
               <button
                 onClick={handelLogout}
