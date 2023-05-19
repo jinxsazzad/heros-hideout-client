@@ -11,6 +11,9 @@ function App() {
         <h1 className="text-3xl font-bold text-primary text-center ">
           Deals and Discounts
         </h1>
+        <p className=" text-center p-2 font-medium">
+          Mega Deals & Discounts! Grape Now!
+        </p>
       </div>
       <div className="grid grid-cols-2 gap-4  m-4">
         <div className="card bg-base-100 shadow-xl image-full">
@@ -58,8 +61,11 @@ function App() {
       </div>
       <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
         <h1 className="text-3xl font-bold text-primary text-center ">
-          Discount For You
+          Our Outlet
         </h1>
+        <p className=" text-center p-2 font-medium">
+          Our Marketplace outlet is everywhere! Visit Now!
+        </p>
       </div>
     </>
   );
