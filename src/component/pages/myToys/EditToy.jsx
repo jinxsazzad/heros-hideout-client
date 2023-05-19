@@ -47,10 +47,10 @@ const EditToy = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <div>
+      <div className=" bg-slate-200 p-1">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="max-w-md mx-auto grid grid-cols-1 gap-4 lg:grid-cols-4 border-4 border-blue-600 m-4 p-6"
+          className="max-w-md mx-auto grid grid-cols-1 gap-4 lg:grid-cols-4 border-2 border-pink-600 m-4 p-6 rounded-md bg-white"
         >
           <div className="mb-4 lg:col-span-2">
             <label htmlFor="name" className="block mb-1">
@@ -198,9 +198,9 @@ const EditToy = () => {
 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded lg:col-span-4"
+            className="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded lg:col-span-4"
           >
-            Edit Toy Details
+            Edit 
           </button>
         </form>
       </div>

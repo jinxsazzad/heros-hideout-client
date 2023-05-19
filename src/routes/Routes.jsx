@@ -38,13 +38,21 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/editToy/:id",
-    element: <EditToy></EditToy>,
+    element: (
+      <PrivateRoute>
+        <EditToy></EditToy>
+      </PrivateRoute>
+    ),
     loader: ({ params }) =>
       fetch(`http://localhost:5000/toyDetails/${params.id}`),
   },
   {
     path: "/addAToy",
-    element: <AddAToy></AddAToy>,
+    element: (
+      <PrivateRoute>
+        <AddAToy></AddAToy>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/viewDetails/:id",

@@ -61,7 +61,7 @@ const AddAToy = () => {
               {...register("pictureUrl", { required: true })}
               placeholder="Enter picture URL"
               defaultValue={
-                "https://dynamic-cdn.catchme.lk/products/12575/13-inch-spider-man-action-figure-16027553554909.jpg"
+                "https://i.ibb.co/FHwb3Hg/Png-Item-44371.png"
               }
               className="w-full p-2 border border-gray-300 rounded"
             />
