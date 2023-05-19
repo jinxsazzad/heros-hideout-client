@@ -4,6 +4,7 @@ import Banner from "../component/pages/homepage/Banner";
 import GalllerySec from "../component/pages/homepage/GalllerySec";
 import ShopByCategory from "../component/pages/homepage/ShopByCategory";
 import App from "../App";
+import NewArrivals from "../component/pages/homepage/NewArrivals";
 
 const MainLayout = () => {
     return (
@@ -12,6 +13,7 @@ const MainLayout = () => {
         <Banner></Banner>
         <GalllerySec></GalllerySec>
         <ShopByCategory></ShopByCategory>
+        <NewArrivals></NewArrivals>
         <App></App>
         <Footer></Footer>
         </>

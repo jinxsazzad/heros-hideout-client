@@ -2,148 +2,117 @@ import React from "react";
 
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-const subCatToys = [
+import {
+  FaLocationArrow,
+  FaMap,
+  FaMapMarkedAlt,
+  FaMapMarkerAlt,
+  FaMapSigns,
+  FaStar,
+} from "react-icons/fa";
+const superheroShowcase = [
   {
     _id: "6466eed8996c43a275b85523",
     name: "Super Man",
     pictureUrl:
       "https://www.pngmart.com/files/15/Marvel-Superhero-Toy-PNG-Photos.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "avengers",
     price: "50",
     rating: "9",
-    quantity: "30",
-    description: "Super Man",
   },
   {
     _id: "6466ef1c996c43a275b85524",
     name: "Captain America",
     pictureUrl:
       "https://www.pngmart.com/files/15/Super-Hero-Transparent-Background.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "avengers",
     price: "60",
     rating: "9",
-    quantity: "30",
-    description: "Captain America",
   },
   {
     _id: "6466ef4a996c43a275b85525",
     name: "Iron Man",
     pictureUrl:
       "https://www.pngmart.com/files/15/Superhero-Toy-Transparent-PNG.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "avengers",
     price: "70",
     rating: "9",
-    quantity: "30",
-    description: "Iron Man",
   },
   {
     _id: "6466f21f996c43a275b85526",
     name: "Dead Pool",
     pictureUrl:
       "https://www.pngmart.com/files/15/Superhero-Toy-Transparent-Background.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "avengers",
     price: "25",
     rating: "7",
-    quantity: "20",
-    description: "Dead Pool",
   },
   {
     _id: "6466f3de996c43a275b85527",
     name: "Bumblebee",
     pictureUrl: "https://i.ibb.co/82vSQmq/Png-Item-4294668.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "transformers",
     price: "100",
     rating: "10",
-    quantity: "15",
-    description: "bumblebeee",
   },
   {
     _id: "6466f4c1996c43a275b85528",
     name: "The Last Knight Canopy",
     pictureUrl: "https://i.ibb.co/rv4LLys/Png-Item-5362772.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "transformers",
     price: "80",
     rating: "7",
-    quantity: "15",
-    description: "The Last Knight Canopy",
   },
   {
     _id: "6466f568996c43a275b85529",
     name: "The Last Knight Sqweeks",
     pictureUrl: "https://i.ibb.co/cXJLHBK/Png-Item-5362808.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "transformers",
     price: "70",
     rating: "7",
-    quantity: "17",
-    description: "The Last Knight Sqweeks",
   },
   {
     _id: "6466f5a0996c43a275b8552a",
     name: "Optimus Prime",
     pictureUrl: "https://i.ibb.co/FbBD04s/Png-Item-125726.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "transformers",
     price: "100",
     rating: "10",
-    quantity: "40",
-    description: "Optimus Prime",
-  },
-  {
-    _id: "6466f845996c43a275b8552b",
-    name: "Buzz Lightyear",
-    pictureUrl: "https://i.ibb.co/BjWPZg5/Png-Item-2140009.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "toyStory",
-    price: "15",
-    rating: "6",
-    quantity: "11",
-    description: "Buzz Lightyear",
-  },
-  {
-    _id: "6466f8bc996c43a275b8552c",
-    name: "Woody",
-    pictureUrl: "https://i.ibb.co/JjppP27/Png-Item-305997.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "toyStory",
-    price: "60",
-    rating: "9",
-    quantity: "13",
-    description: "woody",
-  },
-  {
-    _id: "6466f922996c43a275b8552d",
-    name: "REX",
-    pictureUrl: "https://i.ibb.co/mTBPSPv/Png-Item-1199391.png",
-    sellerName: "JINX SAZZAD",
-    sellerMail: "nooruddinsumon55555@gmail.com",
-    subCategory: "toyStory",
-    price: "60",
-    rating: "10",
-    quantity: "13",
-    description: "rex",
   },
 ];
 
 const GalllerySec = () => {
   return (
-    
+    <div>
+        <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
+          <h1 className="text-3xl font-bold text-primary text-center ">
+          Superhero Showcase
+          </h1>
+          <p className=" text-center p-2 font-medium">
+            Hey! Who is your favorite hero? 
+            <span className=" badge badge-info p-2 font-semibold ml-1">
+              Find Now!
+            </span>
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-slate-200 p-10">
+          {superheroShowcase.map((superhero) => (
+            <div
+              key={superhero._id}
+              className="relative overflow-hidden group bg-white border-4 border-gray-400 rounded-md"
+            >
+              <img
+                src={superhero.pictureUrl}
+                alt={superhero.name}
+                className="w-full h-auto p-4 "
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 bg-black bg-opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-left ">
+                <div className=" p-8 border-4 border-pink-600 rounded-lg">
+                  <p className="text-white text-lg">{superhero.name}</p>
+                  <p className="text-white text-lg">${superhero.price}</p>
+                  <p className="text-white text-lg flex items-center">
+                    {superhero.rating}
+                    <FaStar className="ml-1"></FaStar>
+                  </p>
+                  <span className="btn btn-xs btn-primary">Buy Now</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
   );
 };
 
