@@ -2,6 +2,9 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const ourOutlet = [
   {
@@ -52,14 +55,17 @@ const ourOutlet = [
 ];
 
 const Outlet = () => {
+    useEffect(() => {
+        AOS.init({duration:2000}); // Initialize AOS
+      }, []);
   return (
     <div>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
+      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
         <h1 className="text-3xl font-bold text-primary text-center ">
           Our Outlet
         </h1>
         <p className=" text-center p-2 font-medium">
-          Our Marketplace outlet is everywhere!{" "}
+          Our Marketplace outlet is everywhere!
           <span className=" badge badge-info p-2 font-semibold">
             Visit Now!
           </span>
@@ -72,7 +78,7 @@ const Outlet = () => {
         >
           <div className="flex gap-4">
             {ourOutlet.map((outlet) => (
-              <div className="card bg-base-100 shadow-xl ml-4 ">
+              <div className="card bg-base-100 shadow-xl ml-4 " data-aos="flip-right">
                 <figure className="px-2 pt-2">
                   <img
                     src={outlet.pictureUrl}

@@ -1,15 +1,9 @@
 import React from "react";
 
-import Marquee from "react-fast-marquee";
-import { Link } from "react-router-dom";
-import {
-  FaLocationArrow,
-  FaMap,
-  FaMapMarkedAlt,
-  FaMapMarkerAlt,
-  FaMapSigns,
-  FaStar,
-} from "react-icons/fa";
+import {FaStar,} from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 const superheroShowcase = [
   {
     _id: "6466eed8996c43a275b85523",
@@ -74,9 +68,12 @@ const superheroShowcase = [
 ];
 
 const GalllerySec = () => {
+  useEffect(() => {
+    AOS.init({duration:2000}); // Initialize AOS
+  }, []);
   return (
     <div>
-        <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
+        <div className="border-y-[1px] border-stone-600 bg-base-100 my-2"data-aos="fade">
           <h1 className="text-3xl font-bold text-primary text-center ">
           Superhero Showcase
           </h1>
@@ -91,7 +88,7 @@ const GalllerySec = () => {
           {superheroShowcase.map((superhero) => (
             <div
               key={superhero._id}
-              className="relative overflow-hidden group bg-white border-4 border-gray-400 rounded-md"
+              className="relative overflow-hidden group bg-white border-4 border-gray-400 rounded-md" data-aos="fade-up"
             >
               <img
                 src={superhero.pictureUrl}

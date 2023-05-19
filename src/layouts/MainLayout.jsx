@@ -13,7 +13,7 @@ const MainLayout = () => {
       <Navigation></Navigation>
       <Banner></Banner>
       <NewArrivals></NewArrivals>
-      <GalllerySec data-aos="flip-left" data-aos-delay="100"></GalllerySec>
+      <GalllerySec></GalllerySec>
       <DealsDiscounts></DealsDiscounts>
       <ShopByCategory></ShopByCategory>
       <Outlet></Outlet>

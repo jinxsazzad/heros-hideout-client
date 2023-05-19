@@ -1,6 +1,9 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 const newToys = [
   {
     _id: "6466eed8996c43a275b85523",
@@ -141,9 +144,12 @@ const newToys = [
 ];
 
 const NewArrivals = () => {
+    useEffect(() => {
+        AOS.init({duration:2000}); // Initialize AOS
+      }, []);
   return (
     <div>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
+      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
         <h1 className="text-3xl font-bold text-primary text-center ">
           New Arrivals
         </h1>
@@ -157,12 +163,12 @@ const NewArrivals = () => {
       >
         <div className="flex gap-4 ml-4">
           {newToys.map((toy) => (
-            <div className="card bg-base-100 shadow-xl ">
+            <div className="card bg-base-100 shadow-xl" data-aos="flip-right">
               <figure className="px-2 pt-2">
                 <img
                   src={toy.pictureUrl}
                   alt="Shoes"
-                  className="rounded-xl h-36    w-20 "
+                  className="rounded-xl h-36 w-20 "
                 />
               </figure>
               <div className="card-body items-center text-center">

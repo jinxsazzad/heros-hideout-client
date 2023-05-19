@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 const ShopByCategory = () => {
+  useEffect(() => {
+    AOS.init({duration:2000}); // Initialize AOS
+  }, []);
   const subCat = {
     subCat1: "avengers",
     subCat2: "transformers",
@@ -26,7 +31,7 @@ const ShopByCategory = () => {
   
   return (
     <>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2">
+      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
         <h1 className="text-3xl font-bold text-primary text-center ">
           Categories
         </h1>
@@ -36,7 +41,7 @@ const ShopByCategory = () => {
       </div>
 
       <Tabs className="justify-center items-center bg-slate-300 pt-2 p-8">
-        <TabList className="flex justify-center items-center mb-2">
+        <TabList className="flex justify-center items-center mb-2" data-aos="fade">
           <Tab
             onClick={() => {
               handelLoadData(subCat.subCat1);
@@ -65,7 +70,7 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl ">
+              <div className="card bg-base-100 shadow-xl" data-aos="fade-up">
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -95,7 +100,7 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary">
+                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
                       View Details
                     </Link>
                   </div>
@@ -107,7 +112,7 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl ">
+              <div className="card bg-base-100 shadow-xl " data-aos="fade-up">
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -137,7 +142,7 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary">
+                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
                       View Details
                     </Link>
                   </div>
@@ -149,7 +154,7 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl ">
+              <div className="card bg-base-100 shadow-xl " data-aos="fade-up">
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -179,7 +184,7 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary">
+                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
                       View Details
                     </Link>
                   </div>
