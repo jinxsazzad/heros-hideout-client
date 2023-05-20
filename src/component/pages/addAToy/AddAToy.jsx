@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../context/AuthProvider";
 import Footer from "../../shared/Footer";
@@ -60,9 +60,7 @@ const AddAToy = () => {
               id="pictureUrl"
               {...register("pictureUrl", { required: true })}
               placeholder="Enter picture URL"
-              defaultValue={
-                "https://i.ibb.co/FHwb3Hg/Png-Item-44371.png"
-              }
+              defaultValue={"https://i.ibb.co/FHwb3Hg/Png-Item-44371.png"}
               className="w-full p-2 border border-gray-300 rounded"
             />
             {errors.pictureUrl && (

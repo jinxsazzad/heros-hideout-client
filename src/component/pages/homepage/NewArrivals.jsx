@@ -1,8 +1,8 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 const newToys = [
   {
@@ -144,12 +144,15 @@ const newToys = [
 ];
 
 const NewArrivals = () => {
-    useEffect(() => {
-        AOS.init({duration:2000}); // Initialize AOS
-      }, []);
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
     <div>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
+      <div
+        className="border-y-[1px] border-stone-600 bg-base-100 my-2"
+        data-aos="fade"
+      >
         <h1 className="text-3xl font-bold text-primary text-center ">
           New Arrivals
         </h1>
@@ -157,13 +160,14 @@ const NewArrivals = () => {
           Marketplace is updated ! Collect new Heros Now!
         </p>
       </div>
-      <Marquee
-        pauseOnHover={true}
-        className="py-8 bg-slate-200"
-      >
+      <Marquee pauseOnHover={true} className="py-8 bg-slate-200">
         <div className="flex gap-4 ml-4">
           {newToys.map((toy) => (
-            <div className="card bg-base-100 shadow-xl" data-aos="flip-right">
+            <div
+              key={toy._id}
+              className="card bg-base-100 shadow-xl"
+              data-aos="flip-right"
+            >
               <figure className="px-2 pt-2">
                 <img
                   src={toy.pictureUrl}

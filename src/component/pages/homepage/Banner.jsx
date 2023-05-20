@@ -1,11 +1,10 @@
-import React from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const Banner = () => {
   useEffect(() => {
-    AOS.init({duration:2000}); // Initialize AOS
+    AOS.init({ duration: 2000 });
   }, []);
   return (
     <div className="card lg:card-side bg-pink-500 rounded-none">
@@ -15,7 +14,10 @@ const Banner = () => {
           alt="Album"
         />
       </figure>
-      <div className="card-body flex justify-center items-center text-white" data-aos="fade-left">
+      <div
+        className="card-body flex justify-center items-center text-white"
+        data-aos="fade-left"
+      >
         <div className="p-4">
           <h2 className="card-title text-4xl font-extrabold mb-8">
             Collect Your Favorites Heros Toy Now !
@@ -24,7 +26,9 @@ const Banner = () => {
             Here you can bur you favorites action heros toys!
           </p>
           <div className="card-actions justify-center mb-8">
-            <button className="btn btn-info">Buy Now</button>
+            <button className="badge badge-accent badge-md p-5 font-semibold hover:bg-white">
+              Buy Now
+            </button>
           </div>
         </div>
       </div>

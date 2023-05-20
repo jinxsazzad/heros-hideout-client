@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-base-200 text-base-content">
-      <div >
+      <div>
         <div className="flex justify-center items-center gap-6">
           <svg
             width="50"
@@ -18,8 +18,8 @@ const Footer = () => {
           </svg>
           <p className="text-bold text-2xl border-2 border-pink-400 p-4">
             Hero's
-            <span class="ms-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-              <span class="relative text-white px-4">Hideout</span>
+            <span className="ms-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+              <span className="relative text-white px-4">Hideout</span>
             </span>
           </p>
         </div>
@@ -51,7 +51,7 @@ const Footer = () => {
         <a className="link link-hover">Phone: +8801861193721</a>
         <a className="link link-hover">E-mail: heros.hideout@gmail.com</a>
         <a className="link link-hover">
-          Hero's Hideout Inc. 8901 Dahaka, Bangladesh.
+          Hero's Hideout Inc.789 Oak Road,Harborville,New York.
         </a>
       </div>
     </footer>

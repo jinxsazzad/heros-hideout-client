@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../shared/Footer";
@@ -17,7 +16,7 @@ const EditToy = () => {
     quantity,
     rating,
     description,
-  } = toy;
+  } = toy || [];
   const {
     register,
     handleSubmit,
@@ -25,7 +24,6 @@ const EditToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const confirmPopUp = confirm("Your Toy Details wil update");
     if (confirmPopUp) {
       fetch(`http://localhost:5000/toyDetails/${_id}`, {
@@ -35,17 +33,14 @@ const EditToy = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data?.acknowledged == true) {
             alert("Updated Successful.");
           }
         });
     }
-
-    // Perform form submission logic here
   };
   return (
-    <div>
+    <>
       <Navigation></Navigation>
       <div className=" bg-slate-200 p-1">
         <form
@@ -200,12 +195,12 @@ const EditToy = () => {
             type="submit"
             className="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded lg:col-span-4"
           >
-            Edit 
+            Edit
           </button>
         </form>
       </div>
       <Footer></Footer>
-    </div>
+    </>
   );
 };
 

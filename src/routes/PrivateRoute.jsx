@@ -9,7 +9,8 @@ const PrivateRoute = ({ children }) => {
     return (
       <div className="flex justify-center items-center">
         <div className="flex justify-center items-center h-screen">
-          <h1>Loading ..........</h1>
+          {/* loading design before login */}
+          <progress className="progress w-56"></progress>
         </div>
       </div>
     );

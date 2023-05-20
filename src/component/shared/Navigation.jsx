@@ -1,21 +1,20 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import "../../assets/styles/vanillaCustom.css";
 
 const Navigation = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   const handelLogout = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
   };
   return (
-    <div>
-      <nav className=" my-2 border-y-[1px] border-stone-600 navbar bg-base-100">
+    <>
+      <nav className=" my-1 border-b-4 border-pink-600 navbar bg-base-100">
         <div className="navbar-start">
+          {/* dropdown */}
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -60,14 +59,22 @@ const Navigation = () => {
               </li>
             </ul>
           </div>
+          {/* Logo and site name */}
           <Link
             to={"/"}
-            className="text-2xl font-semibold text-center text-slate-900"
+            className="text-2xl font-semibold text-center text-slate-900 flex justify-center items-center"
           >
-            Hero's
-            <span class="ms-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-              <span class="relative text-white px-4">Hideout</span>
-            </span>
+            <img
+              className="h-20 w-20"
+              src="https://i.ibb.co/CV5gt22/Pngtree-letter-h-logo-6074178.png"
+              alt=""
+            />
+            <p className=" border-s-4 border-pink-600 ps-4 py-2 hidden lg:block">
+              Hero's
+              <span className="ms-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+                <span className="relative text-white px-4">Hideout</span>
+              </span>
+            </p>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -102,13 +109,15 @@ const Navigation = () => {
                 className="tooltip tooltip-left"
                 data-tip={user?.displayName || "User Name"}
               >
-                {user.photoURL?(
+                {user.photoURL ? (
                   <img
                     className="h-10 w-10 rounded-full"
                     src={user?.photoURL}
-                    alt=''
+                    alt=""
                   />
-                ): <FaUser></FaUser>}
+                ) : (
+                  <FaUser></FaUser>
+                )}
               </button>
               <button
                 onClick={handelLogout}
@@ -129,7 +138,7 @@ const Navigation = () => {
           )}
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

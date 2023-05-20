@@ -1,8 +1,8 @@
 import React from "react";
 
-import {FaStar,} from "react-icons/fa";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import { FaStar } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 const superheroShowcase = [
   {
@@ -69,47 +69,51 @@ const superheroShowcase = [
 
 const GalllerySec = () => {
   useEffect(() => {
-    AOS.init({duration:2000}); // Initialize AOS
+    AOS.init({ duration: 2000 });
   }, []);
   return (
     <div>
-        <div className="border-y-[1px] border-stone-600 bg-base-100 my-2"data-aos="fade">
-          <h1 className="text-3xl font-bold text-primary text-center ">
+      <div
+        className="border-y-[1px] border-stone-600 bg-base-100 my-2"
+        data-aos="fade"
+      >
+        <h1 className="text-3xl font-bold text-primary text-center ">
           Superhero Showcase
-          </h1>
-          <p className=" text-center p-2 font-medium">
-            Hey! Who is your favorite hero? 
-            <span className=" badge badge-info p-2 font-semibold ml-1">
-              Find Now!
-            </span>
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-slate-200 p-10">
-          {superheroShowcase.map((superhero) => (
-            <div
-              key={superhero._id}
-              className="relative overflow-hidden group bg-white border-4 border-gray-400 rounded-md" data-aos="fade-up"
-            >
-              <img
-                src={superhero.pictureUrl}
-                alt={superhero.name}
-                className="w-full h-auto p-4 "
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 bg-black bg-opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-left ">
-                <div className=" p-8 border-4 border-pink-600 rounded-lg">
-                  <p className="text-white text-lg">{superhero.name}</p>
-                  <p className="text-white text-lg">${superhero.price}</p>
-                  <p className="text-white text-lg flex items-center">
-                    {superhero.rating}
-                    <FaStar className="ml-1"></FaStar>
-                  </p>
-                  <span className="btn btn-xs btn-primary">Buy Now</span>
-                </div>
+        </h1>
+        <p className=" text-center p-2 font-medium">
+          Hey! Who is your favorite hero?
+          <span className=" badge badge-info p-2 font-semibold ml-1">
+            Find Now!
+          </span>
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-slate-200 p-10">
+        {superheroShowcase.map((superhero) => (
+          <div
+            key={superhero._id}
+            className="relative overflow-hidden group bg-white border-4 border-gray-400 rounded-md"
+            data-aos="fade-up"
+          >
+            <img
+              src={superhero.pictureUrl}
+              alt={superhero.name}
+              className="w-full h-auto p-4 "
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 bg-black bg-opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-left ">
+              <div className=" p-8 border-4 border-pink-600 rounded-lg">
+                <p className="text-white text-lg">{superhero.name}</p>
+                <p className="text-white text-lg">${superhero.price}</p>
+                <p className="text-white text-lg flex items-center">
+                  {superhero.rating}
+                  <FaStar className="ml-1"></FaStar>
+                </p>
+                <span className="btn btn-xs btn-primary">Buy Now</span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+    </div>
   );
 };
 

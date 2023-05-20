@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const ShopByCategory = () => {
+  const { user } = useContext(AuthContext);
+  // for AOS
   useEffect(() => {
-    AOS.init({duration:2000}); // Initialize AOS
+    AOS.init({ duration: 2000 });
   }, []);
   const subCat = {
     subCat1: "avengers",
@@ -28,10 +31,18 @@ const ShopByCategory = () => {
   const handelLoadData = (subCat) => {
     setSubCategory(subCat);
   };
-  
+  const warning = () => {
+    if (!user) {
+      alert("You must be logged in");
+    }
+  };
+
   return (
     <>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
+      <div
+        className="border-y-[1px] border-stone-600 bg-base-100 my-2"
+        data-aos="fade"
+      >
         <h1 className="text-3xl font-bold text-primary text-center ">
           Categories
         </h1>
@@ -41,7 +52,10 @@ const ShopByCategory = () => {
       </div>
 
       <Tabs className="justify-center items-center bg-slate-300 pt-2 p-8">
-        <TabList className="flex justify-center items-center mb-2" data-aos="fade">
+        <TabList
+          className="flex justify-center items-center mb-2"
+          data-aos="fade"
+        >
           <Tab
             onClick={() => {
               handelLoadData(subCat.subCat1);
@@ -70,7 +84,11 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl" data-aos="fade-up">
+              <div
+                key={toy._id}
+                className="card bg-base-100 shadow-xl"
+                data-aos="fade-up"
+              >
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -100,7 +118,12 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
+                    <Link
+                      onClick={warning}
+                      to={`/viewDetails/${toy._id}`}
+                      className="btn btn-sm btn-primary"
+                      data-aos="zoom-in"
+                    >
                       View Details
                     </Link>
                   </div>
@@ -112,7 +135,11 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl " data-aos="fade-up">
+              <div
+                key={toy._id}
+                className="card bg-base-100 shadow-xl "
+                data-aos="fade-up"
+              >
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -142,7 +169,12 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
+                    <Link
+                      onClick={warning}
+                      to={`/viewDetails/${toy._id}`}
+                      className="btn btn-sm btn-primary"
+                      data-aos="zoom-in"
+                    >
                       View Details
                     </Link>
                   </div>
@@ -154,7 +186,11 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
-              <div className="card bg-base-100 shadow-xl " data-aos="fade-up">
+              <div
+                key={toy._id}
+                className="card bg-base-100 shadow-xl "
+                data-aos="fade-up"
+              >
                 <figure className="px-10 pt-10">
                   <img
                     src={toy.pictureUrl}
@@ -184,7 +220,12 @@ const ShopByCategory = () => {
                     </svg>
                   </div>
                   <div className="card-actions">
-                  <Link to={`/viewDetails/${toy._id}`}className="btn btn-sm btn-primary" data-aos="zoom-in">
+                    <Link
+                      onClick={warning}
+                      to={`/viewDetails/${toy._id}`}
+                      className="btn btn-sm btn-primary"
+                      data-aos="zoom-in"
+                    >
                       View Details
                     </Link>
                   </div>

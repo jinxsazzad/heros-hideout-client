@@ -26,12 +26,12 @@ const LoginForm = () => {
       })
       .catch((error) => {
         console.log(error);
-        setError(error.message)
+        setError(error.message);
       });
   };
   return (
     <>
-    <Navigation></Navigation>
+      <Navigation></Navigation>
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8 md:px-16">
@@ -133,15 +133,18 @@ const LoginForm = () => {
 
             <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
               <p>Don{`'`}t have an account?</p>
-              <Link to={'/signUp'} className=" btn-xs py-[1px] px-3 bg-white border rounded-xl hover:scale-110 duration-300">
+              <Link
+                to={"/signUp"}
+                className=" btn-xs py-[1px] px-3 bg-white border rounded-xl hover:scale-110 duration-300"
+              >
                 Register
               </Link>
             </div>
           </div>
-          <div className="md:block hidden w-1/2">
+          <div className="md:block hidden w-1/2 border-l-4 border-pink-600">
             <img
               className="rounded-2xl"
-              src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+              src="https://freepngimg.com/download/hero/149097-toy-superhero-avengers-free-hd-image.png"
             />
           </div>
         </div>

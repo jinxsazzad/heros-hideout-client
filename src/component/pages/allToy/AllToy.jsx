@@ -159,32 +159,29 @@ const AllToy = () => {
           </thead>
           <tbody>
             {allToy.map((toy) => (
-              <>
-                <tr>
-                  <td>
-                    <div className="avatar border-2 border-black rounded-md">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={toy?.pictureUrl} alt="" />
-                      </div>
+              <tr key={toy._id}>
+                <td>
+                  <div className="avatar border-2 border-black rounded-md">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img src={toy?.pictureUrl} alt="" />
                     </div>
-                  </td>
-                  <td>{toy?.name}</td>
-                  <td>{toy?.sellerName}</td>
-                  <td>{toy?.subCategory}</td>
-                  <td>${toy?.price}</td>
-                  <td>{toy?.quantity}</td>
-                  <td>
-                    <Link
-                      to={`/viewDetails/${toy._id}`}
-                      className="btn btn-sm btn-primary"
-                    >
-                      View Details <FaRegEye className="ms-2"></FaRegEye>
-                    </Link>
-                  </td>
-                </tr>
-              </>
+                  </div>
+                </td>
+                <td>{toy?.name}</td>
+                <td>{toy?.sellerName}</td>
+                <td>{toy?.subCategory}</td>
+                <td>${toy?.price}</td>
+                <td>{toy?.quantity}</td>
+                <td>
+                  <Link
+                    to={`/viewDetails/${toy._id}`}
+                    className="btn btn-sm btn-primary"
+                  >
+                    View Details <FaRegEye className="ms-2"></FaRegEye>
+                  </Link>
+                </td>
+              </tr>
             ))}
-            {/* row 1 */}
           </tbody>
         </table>
       </div>

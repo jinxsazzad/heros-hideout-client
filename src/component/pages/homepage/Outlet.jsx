@@ -2,12 +2,13 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const ourOutlet = [
   {
+    id: 1,
     pictureUrl:
       "https://imageio.forbes.com/specials-images/imageserve/5dde81cdea103f0006538749/The-Toys-R-Us-mascot-Geoffrey-standing-in-front-of-the-new-Toys-R-Us-store-in/0x0.jpg?format=jpg&crop=3769,2513,x61,y0,safe&width=960",
     shopName: "Whimsical Wonders",
@@ -17,6 +18,7 @@ const ourOutlet = [
     zipCode: "43011",
   },
   {
+    id: 2,
     pictureUrl:
       "https://imageio.forbes.com/specials-images/imageserve/5dde81cdea103f0006538749/The-Toys-R-Us-mascot-Geoffrey-standing-in-front-of-the-new-Toys-R-Us-store-in/0x0.jpg?format=jpg&crop=3769,2513,x61,y0,safe&width=960",
     shopName: "Playful Paradise",
@@ -26,6 +28,7 @@ const ourOutlet = [
     zipCode: "90210",
   },
   {
+    id: 3,
     pictureUrl:
       "https://imageio.forbes.com/specials-images/imageserve/5dde81cdea103f0006538749/The-Toys-R-Us-mascot-Geoffrey-standing-in-front-of-the-new-Toys-R-Us-store-in/0x0.jpg?format=jpg&crop=3769,2513,x61,y0,safe&width=960",
     shopName: "Toytropolis",
@@ -35,6 +38,7 @@ const ourOutlet = [
     zipCode: "10001",
   },
   {
+    id: 4,
     pictureUrl:
       "https://imageio.forbes.com/specials-images/imageserve/5dde81cdea103f0006538749/The-Toys-R-Us-mascot-Geoffrey-standing-in-front-of-the-new-Toys-R-Us-store-in/0x0.jpg?format=jpg&crop=3769,2513,x61,y0,safe&width=960",
     shopName: "Imagination Station",
@@ -44,6 +48,7 @@ const ourOutlet = [
     zipCode: "33139",
   },
   {
+    id: 5,
     pictureUrl:
       "https://imageio.forbes.com/specials-images/imageserve/5dde81cdea103f0006538749/The-Toys-R-Us-mascot-Geoffrey-standing-in-front-of-the-new-Toys-R-Us-store-in/0x0.jpg?format=jpg&crop=3769,2513,x61,y0,safe&width=960",
     shopName: "WhizKid Toys",
@@ -55,12 +60,15 @@ const ourOutlet = [
 ];
 
 const Outlet = () => {
-    useEffect(() => {
-        AOS.init({duration:2000}); // Initialize AOS
-      }, []);
+  useEffect(() => {
+    AOS.init({ duration: 2000 }); // Initialize AOS
+  }, []);
   return (
-    <div>
-      <div className="border-y-[1px] border-stone-600 bg-base-100 my-2" data-aos="fade">
+    <>
+      <div
+        className="border-y-[1px] border-stone-600 bg-base-100 my-2"
+        data-aos="fade"
+      >
         <h1 className="text-3xl font-bold text-primary text-center ">
           Our Outlet
         </h1>
@@ -72,13 +80,14 @@ const Outlet = () => {
         </p>
       </div>
       <div>
-        <Marquee
-          pauseOnHover={true}
-          className="py-8 bg-slate-200"
-        >
+        <Marquee pauseOnHover={true} className="py-8 bg-slate-200">
           <div className="flex gap-4">
             {ourOutlet.map((outlet) => (
-              <div className="card bg-base-100 shadow-xl ml-4 " data-aos="flip-right">
+              <div
+                key={outlet.id}
+                className="card bg-base-100 shadow-xl ml-4 "
+                data-aos="flip-right"
+              >
                 <figure className="px-2 pt-2">
                   <img
                     src={outlet.pictureUrl}
@@ -103,7 +112,7 @@ const Outlet = () => {
           </div>
         </Marquee>
       </div>
-    </div>
+    </>
   );
 };
 
