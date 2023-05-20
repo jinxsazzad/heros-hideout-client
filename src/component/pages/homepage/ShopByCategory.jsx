@@ -13,9 +13,9 @@ const ShopByCategory = () => {
     AOS.init({ duration: 2000 });
   }, []);
   const subCat = {
-    subCat1: "avengers",
-    subCat2: "transformers",
-    subCat3: "toyStory",
+    subCat1: "Avengers",
+    subCat2: "Transformers",
+    subCat3: "Star-Wars",
   };
   const [subCatToys, setSubCatToys] = useState([]);
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
@@ -76,7 +76,7 @@ const ShopByCategory = () => {
             }}
             className="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md"
           >
-            Toy Story
+            Star-Wars
           </Tab>
         </TabList>
         <TabPanel>
@@ -91,7 +91,7 @@ const ShopByCategory = () => {
                   <img
                     src={toy.pictureUrl}
                     alt="Shoes"
-                    className="rounded-xl h-40  w-24"
+                    className="rounded-xl h-40  w-32 "
                   />
                 </figure>
                 <div className="card-body items-center text-center">
@@ -142,7 +142,7 @@ const ShopByCategory = () => {
                   <img
                     src={toy.pictureUrl}
                     alt="Shoes"
-                    className="rounded-xl h-40  w-24"
+                    className="rounded-xl h-40  w-32"
                   />
                 </figure>
                 <div className="card-body items-center text-center">
@@ -193,7 +193,7 @@ const ShopByCategory = () => {
                   <img
                     src={toy.pictureUrl}
                     alt="Shoes"
-                    className="rounded-xl h-40  w-24"
+                    className="rounded-xl h-40  w-32"
                   />
                 </figure>
                 <div className="card-body items-center text-center">

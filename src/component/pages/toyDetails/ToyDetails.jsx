@@ -18,9 +18,9 @@ const ToyDetails = () => {
   } = toy || [];
   console.log(toy);
   return (
-    <div className=" bg-slate-200 p-8">
+    <div className=" bg-slate-200 p-8 h-screen flex justify-center items-center">
       <div className="card card-side bg-base-100 shadow-xl w-3/4 mx-auto">
-        <figure className="w-2/5 p-3">
+        <figure className="p-3">
           <img src={pictureUrl} alt="" />
         </figure>
         <div className="card-body">
@@ -34,14 +34,14 @@ const ToyDetails = () => {
             <br />
             Price: ${price}
             <br />
-            Rating: {rating} <FaStar className="ml-1"></FaStar>
+            Rating: {rating} Stars
             <br />
             Available Quantity: {quantity}
             <br />
             Details: <br />
             {description}
             <br />
-            <Link to={"/allToy"} className="btn btn-sm btn-primary mt-56 ">
+            <Link to={"/allToy"} className="btn btn-sm btn-primary m-5">
               Go Back
             </Link>
           </p>

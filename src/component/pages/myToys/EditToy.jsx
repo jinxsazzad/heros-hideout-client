@@ -118,10 +118,9 @@ const EditToy = () => {
               defaultValue={subCategory}
               className="w-full p-2 border border-gray-300 rounded"
             >
-              <option value="avengers">Add-Sub-category</option>
-              <option value="avengers">avengers</option>
-              <option value="transformers">transformers</option>
-              <option value="toyStory">toyStory</option>
+              <option value="Avengers">Avengers</option>
+              <option value="Transformers">Transformers</option>
+              <option value="Star-Wars">Star Wars</option>
             </select>
             {errors.subCategory && (
               <span className="text-red-500">This field is required</span>

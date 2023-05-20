@@ -97,26 +97,24 @@ const AddAToy = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
           <div className="mb-4 lg:col-span-2">
             <label htmlFor="subCategory" className="block mb-1">
               Sub-category:
             </label>
             <select
               id="subCategory"
+              placeholder="Add a Sub-Category"
               {...register("subCategory", { required: true })}
               className="w-full p-2 border border-gray-300 rounded"
             >
-              <option value="subCat1">Add-Sub-category</option>
-              <option value="avengers">avengers</option>
-              <option value="transformers">transformers</option>
-              <option value="toyStory">toyStory</option>
+              <option value="Avengers">Avengers</option>
+              <option value="Transformers">Transformers</option>
+              <option value="Star-Wars">Star Wars</option>
             </select>
             {errors.subCategory && (
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
           <div className="mb-4">
             <label htmlFor="price" className="block mb-1">
               Price:
@@ -124,6 +122,7 @@ const AddAToy = () => {
             <input
               type="number"
               id="price"
+              defaultValue={30}
               {...register("price", { required: true })}
               className="w-full p-2 border border-gray-300 rounded"
             />
@@ -131,7 +130,6 @@ const AddAToy = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
           <div className="mb-4">
             <label htmlFor="rating" className="block mb-1">
               Rating:
@@ -139,6 +137,7 @@ const AddAToy = () => {
             <input
               type="number"
               id="rating"
+              defaultValue={7}
               {...register("rating", { required: true })}
               className="w-full p-2 border border-gray-300 rounded"
             />
@@ -146,7 +145,6 @@ const AddAToy = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
           <div className="mb-4 lg:col-span-2">
             <label htmlFor="quantity" className="block mb-1">
               Available Quantity:
@@ -154,6 +152,7 @@ const AddAToy = () => {
             <input
               type="number"
               id="quantity"
+              defaultValue={50}
               {...register("quantity", { required: true })}
               className="w-full p-2 border border-gray-300 rounded"
             />
@@ -161,7 +160,6 @@ const AddAToy = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
           <div className="mb-4 lg:col-span-2">
             <label htmlFor="description" className="block mb-1">
               Detail Description:
