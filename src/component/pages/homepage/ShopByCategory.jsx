@@ -18,9 +18,7 @@ const ShopByCategory = () => {
     subCat3: "toyStory",
   };
   const [subCatToys, setSubCatToys] = useState([]);
-  console.log(subCatToys);
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
-  console.log(subCategory);
   useEffect(() => {
     fetch(`http://localhost:5000/toysBySubCategory/${subCategory}`)
       .then((res) => res.json())

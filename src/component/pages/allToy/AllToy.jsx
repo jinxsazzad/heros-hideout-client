@@ -154,7 +154,7 @@ const AllToy = () => {
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -56,8 +56,7 @@ const myToys = () => {
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
-              <th></th>
-              <th></th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -82,7 +81,7 @@ const myToys = () => {
                   <Link
                     to={`/editToy/${toy?._id}`}
                     htmlFor="my-modal-6"
-                    className="btn btn-primary btn-sm"
+                    className="btn btn-primary btn-sm mr-2"
                   >
                     Edit<FaRegEdit className="ms-2"></FaRegEdit>
                   </Link>
