@@ -8,17 +8,21 @@ import Navigation from "../../shared/Navigation";
 const myToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  console.log(myToys)
+  const [sort,setSort] = useState(0)
+  const handelSort = () => {
+    setSort(1)
+  };
 
   const handelDelete = (id) => {
     const confirmPopUp = confirm("You are deleting a product");
 
     if (confirmPopUp) {
-      fetch(`http://localhost:5000/toyDetails/${id}`, {
+      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount > 0) {
             alert("Successfully DELETED");
             const currentMyToys = myToys.filter((toys) => toys._id !== id);
@@ -28,11 +32,11 @@ const myToys = () => {
     }
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${user?.email}`)
+    fetch(`https://assignment-eleven-server-phi.vercel.app/mytoys/${user?.email}?sort=${sort}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data))
       .catch((error) => console.log(error));
-  }, [user]);
+  }, [user,sort]);
   return (
     <>
       <Navigation></Navigation>
@@ -45,6 +49,13 @@ const myToys = () => {
           here !
         </p>
       </div>
+      <div className="flex justify-center items-center">
+        {" "}
+        <button onClick={handelSort} className=" btn btn-xs btn-outline text-center">
+          Sort By Price
+        </button>
+      </div>
+
       <div className="overflow-x-auto w-full my-2 border-2 border-pink-700 rounded-md">
         <table className="table w-full text-center table-zebra">
           {/* head */}

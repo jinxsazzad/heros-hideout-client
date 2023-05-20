@@ -1,9 +1,9 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const ShopByCategory = () => {
@@ -20,7 +20,7 @@ const ShopByCategory = () => {
   const [subCatToys, setSubCatToys] = useState([]);
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
   useEffect(() => {
-    fetch(`http://localhost:5000/toysBySubCategory/${subCategory}`)
+    fetch(`https://assignment-eleven-server-phi.vercel.app/toysBySubCategory/${subCategory}`)
       .then((res) => res.json())
       .then((data) => {
         setSubCatToys(data);

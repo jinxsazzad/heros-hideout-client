@@ -4,12 +4,12 @@ import LoginForm from "../component/forms/LoginForm";
 import RegForm from "../component/forms/RegForm";
 import AddAToy from "../component/pages/addAToy/AddAToy";
 import AllToy from "../component/pages/allToy/AllToy";
+import Blog from "../component/pages/blog/Blog";
 import EditToy from "../component/pages/myToys/EditToy";
 import MyToys from "../component/pages/myToys/MyToys";
 import ToyDetails from "../component/pages/toyDetails/ToyDetails";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
-import Blog from "../component/pages/blog/Blog";
 
 const Routes = createBrowserRouter([
   {
@@ -45,7 +45,7 @@ const Routes = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: ({ params }) =>
-      fetch(`http://localhost:5000/toyDetails/${params.id}`),
+      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${params.id}`),
   },
   {
     path: "/addAToy",
@@ -63,7 +63,7 @@ const Routes = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: ({ params }) =>
-      fetch(`http://localhost:5000/toyDetails/${params.id}`),
+      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${params.id}`),
   },
   {
     path: "/blog",
