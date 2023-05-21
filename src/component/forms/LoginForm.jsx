@@ -1,9 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navigation from "../shared/Navigation";
 
 const LoginForm = () => {
+  useEffect(()=>{
+    document.title = "HH | LogIn"
+  },[])
   const [error, setError] = useState(false);
   const { signIn, signInWithGoogle } = useContext(AuthContext);
 

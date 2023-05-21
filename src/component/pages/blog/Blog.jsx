@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "../../shared/Navigation";
 import Footer from "../../shared/Footer";
 
 const Blog = () => {
+  useEffect(()=>{
+    document.title = "HH | Blog"
+  },[])
   return (
     <div>
       <Navigation></Navigation>

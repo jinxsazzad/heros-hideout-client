@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../context/AuthProvider";
 import Footer from "../../shared/Footer";
 import Navigation from "../../shared/Navigation";
 
 const AddAToy = () => {
+  useEffect(()=>{
+    document.title = "HH | Add a Toy"
+  },[])
   const { user } = useContext(AuthContext);
   const {
     register,

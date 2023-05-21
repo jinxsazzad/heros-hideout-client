@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
+  useEffect(()=>{
+    document.title = "HH | Error Page"
+  },[])
   return (
     <div className="relative h-screen mx-auto">
       <img

@@ -6,6 +6,9 @@ import Footer from "../../shared/Footer";
 import Navigation from "../../shared/Navigation";
 
 const myToys = () => {
+  useEffect(()=>{
+    document.title = "HH | My Toys"
+  },[])
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   console.log(myToys)

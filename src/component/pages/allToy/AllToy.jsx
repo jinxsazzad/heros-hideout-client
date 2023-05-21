@@ -5,6 +5,9 @@ import Footer from "../../shared/Footer";
 import Navigation from "../../shared/Navigation";
 
 const AllToy = () => {
+  useEffect(()=>{
+    document.title = "HH | All Toys"
+  },[])
   const [allToy, setAllToy] = useState([]);
   const [limit,setLimit] = useState(20);
   const [searchText, setSearchText] = useState("");
@@ -141,6 +144,7 @@ const AllToy = () => {
         setAllToy(data);
       });
   };
+
 
   return (
     <>

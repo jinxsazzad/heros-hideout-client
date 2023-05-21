@@ -2,8 +2,12 @@ import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../shared/Footer";
 import Navigation from "../../shared/Navigation";
+import { useEffect } from "react";
 
 const EditToy = () => {
+  useEffect(()=>{
+    document.title = "HH | Edit Toy Details"
+  },[])
   const toy = useLoaderData();
   const {
     _id,

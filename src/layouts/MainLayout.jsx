@@ -6,8 +6,13 @@ import ShopByCategory from "../component/pages/homepage/ShopByCategory";
 import NewArrivals from "../component/pages/homepage/NewArrivals";
 import Outlet from "../component/pages/homepage/Outlet";
 import DealsDiscounts from "../component/pages/homepage/DealsDiscounts";
+import { useEffect } from "react";
+
 
 const MainLayout = () => {
+  useEffect(()=>{
+    document.title = "HH | Home"
+  },[])
   return (
     <>
       <Navigation></Navigation>

@@ -1,9 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { Link } from "react-router-dom";
 import Navigation from "../shared/Navigation";
 
 const RegForm = () => {
+  useEffect(()=>{
+    document.title = "HH | Registration"
+  },[])
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
 

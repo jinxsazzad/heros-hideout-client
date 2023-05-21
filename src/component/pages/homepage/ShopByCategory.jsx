@@ -85,7 +85,6 @@ const ShopByCategory = () => {
               <div
                 key={toy._id}
                 className="card bg-base-100 shadow-xl"
-                data-aos="fade-up"
               >
                 <figure className="px-10 pt-10">
                   <img
@@ -120,7 +119,6 @@ const ShopByCategory = () => {
                       onClick={warning}
                       to={`/viewDetails/${toy._id}`}
                       className="btn btn-sm btn-primary"
-                      data-aos="zoom-in"
                     >
                       View Details
                     </Link>
@@ -136,7 +134,6 @@ const ShopByCategory = () => {
               <div
                 key={toy._id}
                 className="card bg-base-100 shadow-xl "
-                data-aos="fade-up"
               >
                 <figure className="px-10 pt-10">
                   <img
@@ -171,7 +168,6 @@ const ShopByCategory = () => {
                       onClick={warning}
                       to={`/viewDetails/${toy._id}`}
                       className="btn btn-sm btn-primary"
-                      data-aos="zoom-in"
                     >
                       View Details
                     </Link>
@@ -187,7 +183,6 @@ const ShopByCategory = () => {
               <div
                 key={toy._id}
                 className="card bg-base-100 shadow-xl "
-                data-aos="fade-up"
               >
                 <figure className="px-10 pt-10">
                   <img
@@ -222,7 +217,6 @@ const ShopByCategory = () => {
                       onClick={warning}
                       to={`/viewDetails/${toy._id}`}
                       className="btn btn-sm btn-primary"
-                      data-aos="zoom-in"
                     >
                       View Details
                     </Link>
