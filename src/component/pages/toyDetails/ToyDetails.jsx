@@ -1,8 +1,10 @@
-import React from "react";
-import { FaStar } from "react-icons/fa";
+import React, { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
+  useEffect(()=>{
+    document.title = "HH | Toy Details"
+  },[])
   const toy = useLoaderData();
   const {
     _id,
