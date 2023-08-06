@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.menu li a {
+    font-weight: 700;
+    text-decoration: none;
+    background: none;
+    color: #DF177A;
+    
+  }
+  
+  .menu li a:hover {
+    border-radius: 0;
+    border-bottom: 3px solid #DF177A;
+  }
+  
+  .menu li a.active {
+    font-weight: 700;
+    border-bottom: 3px solid #DF177A;
+    border-radius: 0; /* Added to remove button-like styling */
+    background-image: none; /* Added to remove button-like styling */
+  }

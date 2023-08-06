@@ -45,7 +45,7 @@ const Routes = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: ({ params }) =>
-      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${params.id}`),
+      fetch(`http://localhost:5000/toyDetails/${params.id}`),
   },
   {
     path: "/addAToy",
@@ -63,7 +63,7 @@ const Routes = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: ({ params }) =>
-      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${params.id}`),
+      fetch(`http://localhost:5000/toyDetails/${params.id}`),
   },
   {
     path: "/blog",

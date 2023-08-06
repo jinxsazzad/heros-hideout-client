@@ -5,11 +5,11 @@ import Footer from "../../shared/Footer";
 import Navigation from "../../shared/Navigation";
 
 const AllToy = () => {
-  useEffect(()=>{
-    document.title = "HH | All Toys"
-  },[])
+  useEffect(() => {
+    document.title = "HH | All Toys";
+  }, []);
   const [allToy, setAllToy] = useState([]);
-  const [limit,setLimit] = useState(20);
+  const [limit, setLimit] = useState(20);
   const [searchText, setSearchText] = useState("");
 
   const Toys = [
@@ -132,19 +132,22 @@ const AllToy = () => {
     },
   ];
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-phi.vercel.app/allToy?limit=${limit}`)
+    fetch(
+      `http://localhost:5000/allToy?limit=${limit}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToy(data))
       .catch((error) => console.log(error));
   }, [limit]);
   const handleSearch = () => {
-    fetch(`https://assignment-eleven-server-phi.vercel.app/findToyByName/${searchText}`)
+    fetch(
+      `http://localhost:5000/findToyByName/${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToy(data);
       });
   };
-
 
   return (
     <>
@@ -158,14 +161,16 @@ const AllToy = () => {
         </p>
       </div>
       <div className="search-box flex justify-center items-center gap-2 p-4 text-center bg-slate-400 rounded-md">
-          <input
-            onChange={(e) => setSearchText(e.target.value)}
-            type="text"
-            placeholder="Search by Toy Name"
-            className="p-1 w-96 rounded-lg ps-5"
-          />
-          <button onClick={handleSearch} className="btn btn-primary btn-sm">Search</button>
-        </div>
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          placeholder="Search by Toy Name"
+          className="p-1 w-96 rounded-lg ps-5"
+        />
+        <button onClick={handleSearch} className="btn btn-primary btn-sm">
+          Search
+        </button>
+      </div>
       <div className="overflow-x-auto w-full my-4 border-2 border-pink-700 rounded-md">
         <table className="table w-full table-zebra text-center">
           <thead>
@@ -207,7 +212,14 @@ const AllToy = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center items-center mb-3"><button onClick={()=> setLimit(undefined)} className="btn btn-outline text-center">Load More</button></div>
+      <div className="flex justify-center items-center mb-3">
+        <button
+          onClick={() => setLimit(undefined)}
+          className="btn btn-outline text-center"
+        >
+          Load More
+        </button>
+      </div>
       <Footer></Footer>
     </>
   );

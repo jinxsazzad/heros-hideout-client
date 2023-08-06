@@ -1,6 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { MdFavorite, MdStar, MdStarBorder } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -148,7 +149,7 @@ const NewArrivals = () => {
     AOS.init({ duration: 2000 });
   }, []);
   return (
-    <div>
+    <div >
       <div
         className="border-y-[1px] border-stone-600 bg-base-100 my-2"
         data-aos="fade"
@@ -157,51 +158,46 @@ const NewArrivals = () => {
           New Arrivals
         </h1>
         <p className=" text-center p-2 font-medium">
-          Marketplace is updated ! Collect new Heros Now!
+          Marketplace is updated ! Collect new toys Now!
         </p>
       </div>
-      <Marquee pauseOnHover={true} className="py-8 bg-slate-200">
-        <div className="flex gap-4 ml-4">
+      <Marquee pauseOnHover={true} className="py-8">
+        <div className="flex justify-between items-center gap-4 ml-4">
           {newToys.map((toy) => (
             <div
-              key={toy._id}
-              className="card bg-base-100 shadow-xl"
-              data-aos="flip-right"
-            >
-              <figure className="px-2 pt-2">
-                <img
-                  src={toy.pictureUrl}
-                  alt="Shoes"
-                  className="rounded-xl h-36 w-20 "
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">{toy.name}</h2>
-                <div className="flex gap-2">
-                  <p className="badge badge-outline">$ {toy.price}</p>
-                  <div className="flex items-center mb-2 badge badge-outline">
-                    <span className="text-yellow-500 mr-1 ml-2">
-                      {toy.rating}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-yellow-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 1.317l3.09 6.212 6.905 1.002-4.997 4.87L15.091 19 10 15.795 4.909 19l1.003-6.599L0 8.531l6.905-1.002L10 1.317z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <Link className="badge bg-primary hover:bg-pink-600 p-4">
+            key={toy._id}
+            className=" rounded-xl shadow-md overflow-hidden max-w-xs transition-transform hover:shadow-lg transform hover:scale-105 cursor-pointer border border-gray-300"
+          >
+            <div className="flex items-center justify-center h-48">
+              <img
+                className="h-40 w-auto max-w-full"
+                src={toy.pictureUrl}
+                alt="Product"
+              />
+            </div>
+            <div className="p-4 md:p-6 bg-[#E9E8E4]">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-pink-600">Price: ${toy.price}</span>
+                <span className="font-semibold text-pink-600 flex items-center gap-1">
+                  Rating: {toy.rating} <MdStar className="text-pink-600" />
+                </span>
+              </div>
+              <h2 className="mt-2 text-xl font-semibold text-gray-800">{toy.name}</h2>
+              <div className="mt-2 text-gray-600">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <button className="btn btn-sm text-sm bg-pink-600 hover:bg-pink-700 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-colors">
                   Buy Now
-                </Link>
+                </button>
+                <button className="btn btn-sm btn-outline text-xl hover:text-pink-600 hover:bg-white focus:text-pink-600 transition-colors">
+                  <MdFavorite />
+                </button>
               </div>
             </div>
+          </div>
+          
+          
           ))}
         </div>
       </Marquee>

@@ -1,7 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { MdFavorite, MdStar } from "react-icons/md";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { AuthContext } from "../../../context/AuthProvider";
@@ -20,7 +20,9 @@ const ShopByCategory = () => {
   const [subCatToys, setSubCatToys] = useState([]);
   const [subCategory, setSubCategory] = useState(subCat.subCat1);
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-phi.vercel.app/toysBySubCategory/${subCategory}`)
+    fetch(
+      `http://localhost:5000/toysBySubCategory/${subCategory}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSubCatToys(data);
@@ -49,7 +51,7 @@ const ShopByCategory = () => {
         </p>
       </div>
 
-      <Tabs className="justify-center items-center bg-slate-300 pt-2 p-8">
+      <Tabs className="justify-center items-center pt-2 p-8">
         <TabList
           className="flex justify-center items-center mb-2"
           data-aos="fade"
@@ -74,54 +76,49 @@ const ShopByCategory = () => {
             onClick={() => {
               handelLoadData(subCat.subCat3);
             }}
-            className="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md"
+            className="px-4 py-2 bg-pink-600 text-white font-semibold rounded-md"
           >
             Star-Wars
           </Tab>
         </TabList>
         <TabPanel>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  p-10">
             {subCatToys.map((toy) => (
               <div
                 key={toy._id}
-                className="card bg-base-100 shadow-xl"
+                className="bg-white rounded-xl border border-gray-300 shadow-md overflow-hidden max-w-xs transition-transform hover:shadow-lg transform hover:scale-105 cursor-pointer"
               >
-                <figure className="px-10 pt-10">
+                <div className="flex items-center justify-center h-48">
                   <img
+                    className="h-40 w-auto max-w-full"
                     src={toy.pictureUrl}
-                    alt="Shoes"
-                    className="rounded-xl h-40  w-32 "
+                    alt="Product"
                   />
-                </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">{toy.name}</h2>
-                  <p>Price: $ {toy.price}</p>
-                  <div className="flex items-center mb-2">
-                    Ratting:
-                    <span className="text-yellow-500 mr-1 ml-2">
-                      {toy.rating}
+                </div>
+                <div className="p-4 md:p-6 bg-[#E9E8E4]">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-pink-600">
+                      Price: ${toy.price}
                     </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-yellow-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 1.317l3.09 6.212 6.905 1.002-4.997 4.87L15.091 19 10 15.795 4.909 19l1.003-6.599L0 8.531l6.905-1.002L10 1.317z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <span className="font-semibold text-pink-600 flex items-center gap-1">
+                      Rating: {toy.rating} <MdStar className="text-pink-600" />
+                    </span>
                   </div>
-                  <div className="card-actions">
-                    <Link
-                      onClick={warning}
-                      to={`/viewDetails/${toy._id}`}
-                      className="btn btn-sm btn-primary"
-                    >
-                      View Details
-                    </Link>
+                  <h2 className="mt-2 text-xl font-semibold text-gray-800">
+                    {toy.name}
+                  </h2>
+                  <div className="mt-2 text-gray-600">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <button className="btn btn-sm text-sm bg-pink-600 hover:bg-pink-700 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-colors">
+                      Buy Now
+                    </button>
+                    <button className="btn btn-sm btn-outline text-xl hover:text-pink-600 hover:bg-white focus:text-pink-600 transition-colors">
+                      <MdFavorite />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -132,48 +129,43 @@ const ShopByCategory = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
               <div
-                key={toy._id}
-                className="card bg-base-100 shadow-xl "
-              >
-                <figure className="px-10 pt-10">
-                  <img
-                    src={toy.pictureUrl}
-                    alt="Shoes"
-                    className="rounded-xl h-40  w-32"
-                  />
-                </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">{toy.name}</h2>
-                  <p>Price: $ {toy.price}</p>
-                  <div className="flex items-center mb-2">
-                    Ratting:
-                    <span className="text-yellow-500 mr-1 ml-2">
-                      {toy.rating}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-yellow-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 1.317l3.09 6.212 6.905 1.002-4.997 4.87L15.091 19 10 15.795 4.909 19l1.003-6.599L0 8.531l6.905-1.002L10 1.317z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div className="card-actions">
-                    <Link
-                      onClick={warning}
-                      to={`/viewDetails/${toy._id}`}
-                      className="btn btn-sm btn-primary"
-                    >
-                      View Details
-                    </Link>
-                  </div>
+              key={toy._id}
+              className="bg-white border border-gray-300 rounded-xl shadow-md overflow-hidden max-w-xs transition-transform hover:shadow-lg transform hover:scale-105 cursor-pointer"
+            >
+              <div className="flex items-center justify-center h-48">
+                <img
+                  className="h-40 w-auto max-w-full"
+                  src={toy.pictureUrl}
+                  alt="Product"
+                />
+              </div>
+              <div className="p-4 md:p-6 bg-[#E9E8E4]">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-pink-600">
+                    Price: ${toy.price}
+                  </span>
+                  <span className="font-semibold text-pink-600 flex items-center gap-1">
+                    Rating: {toy.rating} <MdStar className="text-pink-600" />
+                  </span>
+                </div>
+                <h2 className="mt-2 text-xl font-semibold text-gray-800">
+                  {toy.name}
+                </h2>
+                <div className="mt-2 text-gray-600">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <button className="btn btn-sm text-sm bg-pink-600 hover:bg-pink-700 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-colors">
+                    Buy Now
+                  </button>
+                  <button className="btn btn-sm btn-outline text-xl hover:text-pink-600 hover:bg-white focus:text-pink-600 transition-colors">
+                    <MdFavorite />
+                  </button>
                 </div>
               </div>
+            </div>
             ))}
           </div>
         </TabPanel>
@@ -181,48 +173,43 @@ const ShopByCategory = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {subCatToys.map((toy) => (
               <div
-                key={toy._id}
-                className="card bg-base-100 shadow-xl "
-              >
-                <figure className="px-10 pt-10">
-                  <img
-                    src={toy.pictureUrl}
-                    alt="Shoes"
-                    className="rounded-xl h-40  w-32"
-                  />
-                </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">{toy.name}</h2>
-                  <p>Price: $ {toy.price}</p>
-                  <div className="flex items-center mb-2">
-                    Ratting:
-                    <span className="text-yellow-500 mr-1 ml-2">
-                      {toy.rating}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-yellow-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 1.317l3.09 6.212 6.905 1.002-4.997 4.87L15.091 19 10 15.795 4.909 19l1.003-6.599L0 8.531l6.905-1.002L10 1.317z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div className="card-actions">
-                    <Link
-                      onClick={warning}
-                      to={`/viewDetails/${toy._id}`}
-                      className="btn btn-sm btn-primary"
-                    >
-                      View Details
-                    </Link>
-                  </div>
+              key={toy._id}
+              className="bg-white rounded-xl shadow-md border border-gray-300 overflow-hidden max-w-xs transition-transform hover:shadow-lg transform hover:scale-105 cursor-pointer"
+            >
+              <div className="flex items-center justify-center h-48">
+                <img
+                  className="h-40 w-auto max-w-full"
+                  src={toy.pictureUrl}
+                  alt="Product"
+                />
+              </div>
+              <div className="p-4 md:p-6 bg-[#E9E8E4]">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-pink-600">
+                    Price: ${toy.price}
+                  </span>
+                  <span className="font-semibold text-pink-600 flex items-center gap-1">
+                    Rating: {toy.rating} <MdStar className="text-pink-600" />
+                  </span>
+                </div>
+                <h2 className="mt-2 text-xl font-semibold text-gray-800">
+                  {toy.name}
+                </h2>
+                <div className="mt-2 text-gray-600">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <button className="btn btn-sm text-sm bg-pink-600 hover:bg-pink-700 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-colors">
+                    Buy Now
+                  </button>
+                  <button className="btn btn-sm btn-outline text-xl hover:text-pink-600 hover:bg-white focus:text-pink-600 transition-colors">
+                    <MdFavorite />
+                  </button>
                 </div>
               </div>
+            </div>
             ))}
           </div>
         </TabPanel>

@@ -16,7 +16,7 @@ const AddAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://assignment-eleven-server-phi.vercel.app/addAToy", {
+    fetch("http://localhost:5000/addAToy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

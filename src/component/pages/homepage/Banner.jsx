@@ -7,32 +7,29 @@ const Banner = () => {
     AOS.init({ duration: 2000 });
   }, []);
   return (
-    <div className="card lg:card-side bg-pink-500 rounded-none">
-      <figure data-aos="fade-right">
-        <img
-          src="https://images.unsplash.com/photo-1599623560574-39d485900c95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="Album"
-        />
-      </figure>
+    <section>
       <div
-        className="card-body flex justify-center items-center text-white"
-        data-aos="fade-left"
+        className="hero h-[70vh]"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1599623560574-39d485900c95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)",
+        }}
       >
-        <div className="p-4">
-          <h2 className="card-title text-4xl font-extrabold mb-8">
-            Collect Your Favorites Heros Toy Now !
-          </h2>
-          <p className="text-xl font-base mb-8">
-            Here you can bur you favorites action heros toys!
-          </p>
-          <div className="card-actions justify-center mb-8">
-            <button className="badge badge-accent badge-md p-5 font-semibold hover:bg-white">
-              Buy Now
-            </button>
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-5xl font-bold">Make Your Kids Happy</h1>
+            <p className="mb-5">
+              Discover a world of enchanting action figures, delightful dolls,
+              and zooming cars that will ignite your child's imagination and
+              make playtime an extraordinary adventure. Embrace the magic of
+              play and watch your child's dreams come to life.
+            </p>
+            <button className="btn btn-primary">Shop Now</button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

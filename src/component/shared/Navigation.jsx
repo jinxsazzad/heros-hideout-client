@@ -12,7 +12,7 @@ const Navigation = () => {
   };
   return (
     <>
-      <nav className=" my-1 border-b-4 border-pink-600 navbar bg-base-100">
+      <nav className=" border-b-4 border-pink-600 navbar bg-base-100">
         <div className="navbar-start">
           {/* dropdown */}
           <div className="dropdown">
@@ -54,9 +54,9 @@ const Navigation = () => {
               ) : (
                 <></>
               )}
-              <li>
+              {/* <li>
                 <NavLink to={"/blog"}>Blog</NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
           {/* Logo and site name */}
@@ -79,27 +79,39 @@ const Navigation = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal rounded-none px-1">
-            <li>
+            <li className="me-2">
               <NavLink to={"/"}>Home</NavLink>
             </li>
-            <li>
+            <li className="me-2">
               <NavLink to={"/allToy"}>All Toy</NavLink>
+            </li>
+            <li className="me-2">
+              <NavLink to={"/superDeal"}>Super Deal</NavLink>
+            </li>
+            <li className="me-2">
+              <NavLink to={"/popular"}>Popular Toy</NavLink>
+            </li>
+            <li className="me-2">
+              <NavLink to={"/new"}>New Arrival</NavLink>
+            </li>
+            <li className="me-2">
+              <NavLink to={"/contact"}>Contact</NavLink>
             </li>
             {user ? (
               <>
-                <li>
+                <li className="me-2">
                   <NavLink to={"/myToys"}>My Toys</NavLink>
                 </li>
-                <li>
+                <li className="me-2">
                   <NavLink to={"/addAToy"}>Add A Toy</NavLink>
                 </li>
               </>
             ) : (
               <></>
             )}
-            <li>
+            {/* <li className="me-2">
               <NavLink to={"/blog"}>Blog</NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="navbar-end">
@@ -121,7 +133,7 @@ const Navigation = () => {
               </button>
               <button
                 onClick={handelLogout}
-                className="flex justify-center items-center p-2"
+                className="btn btn-outline rounded-full hover:bg-pink-600 flex justify-center items-center p-4"
               >
                 Logout <FaSignOutAlt className="ms-2"></FaSignOutAlt>
               </button>
@@ -130,7 +142,7 @@ const Navigation = () => {
             <button>
               <NavLink
                 to={"/signIn"}
-                className="flex justify-center items-center p-2"
+                className=" btn btn-outline rounded-full hover:bg-pink-600 flex justify-center items-center p-4"
               >
                 Login<FaSignInAlt className="ms-2"></FaSignInAlt>
               </NavLink>

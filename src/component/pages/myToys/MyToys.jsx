@@ -21,7 +21,7 @@ const myToys = () => {
     const confirmPopUp = confirm("You are deleting a product");
 
     if (confirmPopUp) {
-      fetch(`https://assignment-eleven-server-phi.vercel.app/toyDetails/${id}`, {
+      fetch(`http://localhost:5000/toyDetails/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -35,7 +35,7 @@ const myToys = () => {
     }
   };
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-phi.vercel.app/mytoys/${user?.email}?sort=${sort}`)
+    fetch(`http://localhost:5000/mytoys/${user?.email}?sort=${sort}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data))
       .catch((error) => console.log(error));

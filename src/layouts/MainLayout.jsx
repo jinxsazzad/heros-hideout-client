@@ -7,22 +7,28 @@ import NewArrivals from "../component/pages/homepage/NewArrivals";
 import Outlet from "../component/pages/homepage/Outlet";
 import DealsDiscounts from "../component/pages/homepage/DealsDiscounts";
 import { useEffect } from "react";
-
+import MiniSection from "../component/pages/homepage/MiniSection";
+import Newletter from "../component/pages/homepage/Newletter";
+import Brands from "../component/pages/homepage/Brands";
 
 const MainLayout = () => {
-  useEffect(()=>{
-    document.title = "HH | Home"
-  },[])
+  useEffect(() => {
+    document.title = "HH | Home";
+  }, []);
   return (
     <>
-      <Navigation></Navigation>
-      <Banner></Banner>
-      <NewArrivals></NewArrivals>
-      <GalllerySec></GalllerySec>
-      <DealsDiscounts></DealsDiscounts>
-      <ShopByCategory></ShopByCategory>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <Navigation/>
+      <Banner/>
+      <MiniSection/>
+      <NewArrivals/>
+      <DealsDiscounts/>
+      <GalllerySec/>
+      <DealsDiscounts/>
+      <ShopByCategory/>
+      <Outlet/>
+      <Brands/>
+      <Newletter/>
+      <Footer/>
     </>
   );
 };
